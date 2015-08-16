@@ -709,8 +709,18 @@ a {
 }
 #header .switch-part4 {
   left: 300%;
-  text-align: left;
+  text-align: center;
   line-height: 30px;
+}
+#header .switch-part4 .switch-aboutme-link {
+  margin-right: 9px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 5px;
+}
+#header .switch-part4 .switch-aboutme-link:hover {
+  background: #88acdb;
+  color: #fff;
 }
 .duoshuo {
   padding: 0 40px;
