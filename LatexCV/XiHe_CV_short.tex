@@ -1,0 +1,321 @@
+%!TEX program = xelatex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Plasmati Graduate CV
+% LaTeX Template
+% Version 1.0 (24/3/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Alessandro Plasmati (alessandro.plasmati@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template needs to be compiled with XeLaTeX.
+% The main document font is called Fontin and can be downloaded for free
+% from here: http://www.exljbris.com/fontin.html
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,11pt]{article} % Default font size and paper size
+
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{color}
+\usepackage[colorlinks = true,
+linkcolor = blue,
+urlcolor  = blue,
+citecolor = blue,
+anchorcolor = blue]{hyperref}
+
+\newcommand{\MYhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+
+
+\usepackage{fontspec} % For loading fonts
+\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin} % Main document font
+
+\usepackage{xunicode,xltxtra,url,parskip} % Formatting packages
+
+\usepackage[usenames,dvipsnames]{xcolor} % Required for specifying custom colors
+
+%\usepackage[big]{layaureo} % Margin formatting of the A4 page, an alternative to layaureo can be \usepackage{fullpage}
+% To reduce the height of the top margin uncomment: \addtolength{\voffset}{-1.3cm}
+
+\usepackage{hyperref} % Required for adding links	and customizing them
+\definecolor{linkcolour}{rgb}{0,0.2,0.6} % Link color
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour} % Set link colors throughout the document
+
+\usepackage{titlesec} % Used to customize the \section command
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule] % Text formatting of sections
+\titlespacing{\section}{0pt}{0pt}{0pt} % Spacing around sections
+
+
+
+\begin{document}
+
+\pagestyle{empty} % Removes page numbering
+
+\font\fb=''[cmr10]'' % Change the font of the \LaTeX command under the skills section
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+% \begin{table}
+% \centering
+% \begin{tabular}{c}	
+% \par{\raggedleft{\Huge Xi \textsc{H}e}\par}\\ % Your name
+% \par{\centering{837 Cedar Hill Drive, Allentown, PA 18109}\par}\\ % Your name
+% \par{\centering{Tel:(484)633-8040}\par}\quad\par{\centering{Email: xih314@lehigh.edu}\par} \quad\par{\centering{Website: www.xihey.com}\par} 
+% \end{tabular}
+% \end{table}
+
+% \begin{table}
+% \centering
+% \begin{tabular}{c}  
+\centering{\Huge Xi \textsc{H}e}\\
+837 Cedar Hill Drive, Allentown, PA 18109\\(484)633-8040, {xih314@lehigh.edu}, \MYhref{www.xihey.com}{www.xihey.com}
+% \end{tabular}
+% \end{table}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Objective}
+\flushleft {To purse a research internship position in data analysis.}
+
+\section{Education}
+\begin{tabular}{l l p{3.5cm}}	
+\textbf{Ph.D.} &Industrial and System Engineering, Lehigh University, PA, USA.&\hfill{Aug 2014 - Present}\\
+% ~&Current advisor: Martin Takáč. &~\\
+%&Courses taking: Nonlinear Optimization, Pattern Recognition, Stochastic Modelling  \\
+
+%------------------------------------------------
+
+% Aug 2012 - May 2014&  \textbf{Master of Science in Computational Mathematics} \\
+% &Nankai University, Tianjin, P.R.China.\\
+% &Courses in: Numerical linear algebra, Optimization, PDE.\\
+% &\\
+
+% %------------------------------------------------
+
+% Sep 2008 - Jun 2012& \normalsize\textbf{Bachelor of Science in Mathematics} \\
+% &Nankai University, Tianjin, P.R.China. \\
+\textbf{B.S. \& M.S.} &Mathematics, Nankai University, China. & \hfill{Sep 2008 - May 2014}\\
+\end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	RESEARCH INTERESTS
+%----------------------------------------------------------------------------------------
+
+% \section{Research Interests}
+
+% \begin{tabular}{p{17.7cm}}
+% \qquad My research focuses on large-scale optimization algorithms and its applications
+% in machine learning, more specifically, large-scale nonlinear optimization,
+% stochastic gradient methods, statistical learning and parallel computing.
+% \end{tabular}
+
+
+%----------------------------------------------------------------------------------------
+%	Working Paper
+%----------------------------------------------------------------------------------------
+
+% \iffalse
+% \section{Submitted Paper}
+
+% \begin{tabular}{p{17cm}}
+%  \textbf{[1] Adding vs. Averaging in Distributed Primal-Dual Optimization,} with Virginia Smith, Martin Jaggi, Michael I. Jordan, Peter Richtárik, Martin Takáč \\
+% \footnotesize {-Submitted for 2015 ICML conference, arXiv preprint: 1502.03508.} \\
+% %&\footnotesize {-In this paper we present a novel generalization of the recent communication efficient primal-dual coordinate ascent framework (CoCoA). We give stronger (primal-dual) convergence rate guarantees for both CoCoA as well as our new variants, and generalize the theory for both methods to also cover non-smooth convex loss functions.}\\
+% \end{tabular}
+% \fi
+
+% \section{Working Papers}
+% \begin{tabular}{p{17.7cm}}
+% \textbf{[1] Estimating Portfolio Loss Probabilities with Optimal Risk Loading Coefficients and Fixed Dependency among Obligors,} with Amit Chakraborty, Ioannis Akrotirianakis. \\
+% \textbf{[2] Modeling Probability of Rare Catastrophic Failure in Complex Systems Using a Copula-based Approach,} with Amit Chakraborty, Ioannis Akrotirianakis. \\
+% \textbf{[3] Exploiting negative curvature in deep learning optimization problems,} with Ioannis Akrotirianakis, Amit Chakraborty.\\
+% \textbf{[4] Asynchronous Distributed Stochastic dual (Block) Coordinate Descent Methods,} with Martin Takáč. \\
+% \textbf{[5] Coordinate Descent Methods for Linearly Constrained Optimization,} with Martin Takáč.\\
+% \textbf{[6] A Method with Parameter for Solving the Spectral Radius of Nonnegative Tensor,} with Yiyong Li, Qingzhi Yang. Submitted.
+% \end{tabular}
+
+\section{Working Experience}
+\begin{tabular}{p{17.5cm}}
+% Jun 15' - Sep 15' \,&\textbf{Research Assistant,} \emph{Predictive Analytics
+% Business Analytics and Monitoring,} Siemens Corporation, Corporate Technology, Princeton, NJ. \\
+% & \footnotesize{- Portfolio Credit Risk and Deep Learning.}\\
+% Sep 14' - Jun 15' \,&\textbf{Teaching Assistant,} \emph{Department of Industrial and Systems Engineering,} Lehigh University, Bethlehem, PA. \\
+% & \footnotesize{- Applied Engineering Statistics (Fall 2014 \& Spring 2015).}\\
+% Sep 13' - Jan 14' \,& \textbf{Teaching Assistant,} \emph{Department of Mathematics,} Nankai University, P.R.China. \\
+% & \footnotesize{- Theory of Optimization (Spring 2014) \& Linear algebra (Fall 2013).}\\
+% \multicolumn{2}{c}{} \\
+\textbf{Internship} \\
+\emph{Business Analytics and Monitoring,} Siemens Corporation, Princeton, NJ, USA.\\
+\footnotesize{- \textbf{\emph{Deep Learning via HF approach: }}}
+By further exploring negative curvature of deep learning model, we propose new algorithm which make use of its approximated local Hessian Matrix information. Our new algorithm guarantees to reach local optimality instead of sticking at critical point and share faster convergence rate. \hfill{Summer 2015}\\
+\footnotesize{- \textbf{\emph{Portfolio Credit Risk: }} }
+Develop optimization models to measure default risk of a portfolio using normal copula model and importance sampling techniques. By fully utilizing dependency among obligors from Market, more reliable and stable prediction is proposed.\hfill{Summer 2015}\\
+\textbf{Research Assistant} \\
+\emph{Department of Industrial and Systems Engineering,} Lehigh University, PA, USA. \\
+\footnotesize{- \textbf{\emph{Dual Free SDCA algorithm with adaptive probability:}} Develop optimal probability distribution for dual free SDCA framework. Better performance is shown by take consideration of sub-optimality of each coordinate.\hfill{Fall 2015}}\\
+\footnotesize{- \textbf{\emph{Distributed Algorithms for Large-scale Optimization Problems:}} Propose asynchronous distributed algorithms for empirical minimization problem. \hfill{Spring 2015}}\\
+% \footnotesize{- \textbf{\emph{Large-scale Optimization Problems with linear coupled constraints:}} Develop Coordinate Descent Methods for Linearly Constrained Optimization and theocratic analysis for its complexity results. \hfill{Fall 2014}}\\
+\textbf{Teaching Assistant} \\
+\emph{Department of Industrial and Systems Engineering,} Lehigh University, PA, USA. \\
+\footnotesize{- \textbf{\emph{Applied Engineering Statistics}} \hfill{Fall 2014 \& Spring 2015}}\\
+\end{tabular}
+
+\section{Selected Courses and Projects}
+\begin{tabular}{p{17.5cm}}
+    \textbf{Massive Data Mining,} Lehigh University. \\ 
+% \textbf{Nonlinear Optimization,} Lehigh University. \hfill{Spring 2015}\\ 
+\textbf{Pattern Recognition,} Lehigh University.\\ 
+\footnotesize{- \textbf{\emph{Digit Recognizer:}} Implemented a Matlab software package to compare various of classifier technologies (Support Vector Machine, Artificial Neural Network, Decision Tree, KKN) for character-image classification problem.} \hfill{Spring 2015}\\ 
+\textbf{Computation Method,} Lehigh University. \\ 
+\footnotesize{- \textbf{\emph{Compressed Sensing:}} Using $\ell_1$-regularized lasso model to recovery pictures with missing pixels. Multiple algorithms (ISTA, FISTA, GRPS) are implemented " in C\texttt{++} and compared to figure out their performance.} \hfill{Fall 2015}\\ 
+% \textbf{Stochastic Modeling and Applications,} Lehigh University.\\ 
+% \textbf{Linear Optimization,} Lehigh University. \hfill{Fall 2014}\\
+% Fall 14' \textbf{Convex Analysis,} Lehigh University. \\
+\textbf{Integer Programming,} Lehigh University.\\ 
+\footnotesize{- \textbf{\emph{Mixed binary problem solver:}} Implemented a Python software package to address mixed binary programming problem with branch and cut method.} \hfill{Spring 2015}\\ 
+\textbf{Machine Learning,} Andrew Ng (Stanford University), Coursera.\\
+\textbf{High Performance Scientific Computing,} Randall J. LeVeque, Coursera.
+\end{tabular}
+
+% \section{Selected Project}
+% \begin{tabular}{p{17.5cm}}
+% \textbf{Compressed Sensing:} Lehigh University. \hfill{Fall 2015}\\ 
+% % \textbf{Nonlinear Optimization,} Lehigh University. \hfill{Spring 2015}\\ 
+% \textbf{Digit Recognizer:} \footnotesize{Implemented a Matlab software package to compare various of classifier technologies (Support Vector Machine, Artificial Neural Network, Decision Tree, KKN) for character-image classification problem.} \hfill{Spring 2015}\\ 
+% \end{tabular}
+
+\section{Skills}
+\begin{tabular}{l p{14.5cm}}
+ \textbf{Programming:}  &\textsc{C\texttt{++}}, \textsc{Matlab}, \textsc{R}, \textsc{Python}, \textsc{Mathematica}\\
+ \textbf{Others:}  & \textsc{AMPL}, \textsc{CPLEX}, \textsc{Shell Script}, \textsc{Html}\\
+% \textbf{High performance Computing:} & MPI, OpenMP, Spark\\
+% Others   \LaTeX, Mac OS, Linus, Windows
+\end{tabular}
+
+\section{Submitted Papers}
+\begin{tabular}{p{17.7cm}}
+    \textbf{[1] Dual Free SDCA for Empirical Risk Minimization with Adaptive Probabilities}, with Martin Takáč. \\
+    \textbf{[2] Estimating Portfolio Loss Probabilities with Optimal Risk Loading Coefficients and Fixed Dependency among Obligors}, with Amit Chakraborty, Ioannis Akrotirianakis. \\
+    \textbf{[3] A Method with Parameter for Solving the Spectral Radius of Nonnegative Tensor}, with Yiyong Li, Qingzhi Yang. 
+\end{tabular}
+
+% \section{Selected Honor and Awards}
+% \begin{tabular}{p{17.7cm}}
+%     Dean’s Doctoral Fellowship, Lehigh University.\hfill{Fall 2015}\\
+%     % ~~~Sep 13'  First Prize of Excellent Master Scholarship, Nankai University.\\
+%     Fellowship award, Nankai University.\hfill{Fall 2013}\\
+%     % ~~~Nov 11' National Encouragement Scholarship, Nankai University.\\
+% \end{tabular}
+
+% \section{Reference}
+% Martin Takáč, Department of Industrial and Systems Engineering, H.S. Mohler Laboratory, Lehigh University, Bethlehem, PA 18015, takac@lehigh.edu.
+
+% \section{Research Experience}
+
+% \begin{tabular}{r|p{14cm}}
+% June 15' - Sep 15' & \textbf{Large-loss Probability in Credit Portfolio Risk} \\
+% Supervisor & \emph{Amit Chakraborty, Head, Predictive Analytics
+% Business Analytics and Monitoring, Siemens Corporation, Corporate Technology.}   \\
+% & \footnotesize{- Derive optimal risk loading coefficients.}\\
+% & \footnotesize{- Estimating large-loss probability of a portfolio.}\\
+% Aug 14' - Jun 15' & \textbf{Distributed Algorithm for Large-scale Optimization Problems} \\
+% Supervisor & \emph{Martin Takáč, Professor, Department of Industrial and Systems Engineering, Lehigh University.}   \\
+% & \footnotesize{- Develop distributed algorithm for solving large-scale optimization in machine learning.}\\
+% & \footnotesize{- Theoretic results on convergence and computational complexity.}\\
+% Jul 13' - Jun 14' & \textbf{Nonnegative Square (Rectangular) Tensor} \\
+% Supervisor & \emph{Qingzhi Yang, Professor, Department of Mathematics, Nankai University.}   \\
+% & \footnotesize{- Classify nonnegative tensors under different properties.}\\
+% & \footnotesize{- Develop fast algorithm to find spectral radius of nonnegative square tensor and implement it by Matlab and Mathematica.}\\
+% & \footnotesize{- Apply tensor theory to hypergraph and polynomial optimization problems.}
+% \end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	TEACHING EXPERIENCE 
+%----------------------------------------------------------------------------------------
+
+% \section{Working Experience}
+% \begin{tabular}{r|p{14.5cm}}
+% Jun 15' - Sep 15' \,&\textbf{Research Assistant,} \emph{Predictive Analytics
+% Business Analytics and Monitoring,} Siemens Corporation, Corporate Technology, Princeton, NJ. \\
+% & \footnotesize{- Portfolio Credit Risk and Deep Learning.}\\
+% Sep 14' - Jun 15' \,&\textbf{Teaching Assistant,} \emph{Department of Industrial and Systems Engineering,} Lehigh University, Bethlehem, PA. \\
+% & \footnotesize{- Applied Engineering Statistics (Fall 2014 \& Spring 2015).}\\
+% Sep 13' - Jan 14' \,& \textbf{Teaching Assistant,} \emph{Department of Mathematics,} Nankai University, P.R.China. \\
+% & \footnotesize{- Theory of Optimization (Spring 2014) \& Linear algebra (Fall 2013).}\\
+% \multicolumn{2}{c}{} \\
+% \end{tabular}
+%----------------------------------------------------------------------------------------
+%	Talks in Lehigh
+%----------------------------------------------------------------------------------------
+
+% \section{Talks}
+% \begin{tabular}{r|p{14.5cm}}
+% \,\,\,\,Aug 13' &\textbf{Estimating Portfolio Loss Probabilities with Optimal Risk Loading Coefficients and Fixed Dependency among Obligors,} Siemens Corporation, Corporate Technology.\\
+% \,\,\,\,Nov 14' &\textbf{Random Coordinate Descent Method on Large-scale Optimization Problems,} Coral Semina, Lehigh University.
+% \end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	PHD Courses and other training
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	SCHOLARSHIPS AND ADDITIONAL INFO
+%----------------------------------------------------------------------------------------
+
+% \section{Honors and Grants}
+% \begin{tabular}{r|p{14.5cm}}
+% ~~~Sep 14' & Dean’s Doctoral Assistantship, Lehigh University.\\
+% ~~~Sep 13' & First Prize of Excellent Master Scholarship, Nankai University.\\
+% ~~~Sep 12' & Fellowship award, Nankai University.\\
+% ~~~Jun 12' & Excellent B.Sci Thesis, Nankai University.\\
+% ~~~Nov 11'& National Encouragement Scholarship, Nankai University.\\
+% ~~~Sep 08' & Second Prize Winner of National Olympics Contest of Math.
+% \end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	SCHOLARSHIPS AND ADDITIONAL INFO
+%----------------------------------------------------------------------------------------
+
+% \section{Conferences \& Workshop Attended}
+% \begin{tabular}{r|p{14.5cm}}
+% ~~~Aug 14'  & MOPTA - Modeling and Optimization: Theory and Applications, Lehigh University.\\
+% ~~~Jun 14'  & International Workshop of Spectral Graph and Hypergraph Theory, Fuzhou University.\\
+% ~~~Nov 13' & The 2nd Sino-German Workshop on Optimization, Chinese Academy of Sciences.\\
+% ~~~Jun 12'  & International Conference on the Spectral Theory of the Tensor, Nankai University.\\
+% ~~~Jun 12' & Senior Workshop on the Spectral Theory of the tensor, Tianjin University.
+% \end{tabular}
+
+%----------------------------------------------------------------------------------------
+%	SCHOLARSHIPS AND ADDITIONAL INFO
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	Reference 
+%----------------------------------------------------------------------------------------
+
+%\section{Interests and Activities}
+%Logic, Artificial Intelligence, Programming\\
+%Formula 1, Soccer
+
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
