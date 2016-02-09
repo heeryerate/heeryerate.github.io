@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1454064406 "XiHe_CV.tex" "XiHe_CV.pdf" "XiHe_CV" 1454071258
+["pdflatex"] 1454986968 "XiHe_CV.tex" "XiHe_CV.pdf" "XiHe_CV" 1454987035
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -95,11 +95,11 @@
   "/usr/local/texlive/2014/texmf-dist/web2c/texmf.cnf" 1398200874 31722 4f52421e59a4b9e910cf18e64c1f2b4a ""
   "/usr/local/texlive/2014/texmf-var/web2c/xetex/xelatex.fmt" 1401026031 3170295 e39db88238db0131fe0d64f8a6d7f7da ""
   "/usr/local/texlive/2014/texmf.cnf" 1401025936 577 a59edbde8d3a8c549d0eeaab1739e2ff ""
-  "XiHe_CV.aux" 1454064408 2177 c50bdeaeb6cd5c0713c762e697cb1f9d ""
-  "XiHe_CV.out" 1454064408 421 b006b23b20170cc74ba6b47e6119ecd0 ""
-  "XiHe_CV.tex" 1454071258 13376 5e46190be17987c032326048cb19483f ""
+  "XiHe_CV.aux" 1454986970 2177 8c831bea3fd23e7f766f822aa1b46b73 ""
+  "XiHe_CV.out" 1454986970 421 b006b23b20170cc74ba6b47e6119ecd0 ""
+  "XiHe_CV.tex" 1454986968 13378 0b59a743c900482793de81dc599df1da ""
   (generated)
+  "XiHe_CV.aux"
   "XiHe_CV.out"
   "XiHe_CV.log"
   "XiHe_CV.pdf"
-  "XiHe_CV.aux"
