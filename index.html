@@ -123,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Website/" style="font-size: 10px;">Website</a>
+						<a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Website/" style="font-size: 20px;">Website</a>
 					</div>
 				</section>
 				
@@ -199,6 +199,73 @@ var _hmt = _hmt || [];
 </nav>
       <div class="body-wrap">
   
+    <article id="post-gitProblem" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/25/gitProblem/" class="article-date">
+  	<time datetime="2016-04-25T04:21:49.000Z" itemprop="datePublished">2016-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/25/gitProblem/">Common issues you may encounter when using Git</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Q: <strong>fatal: remote origin already exists</strong></p>
+<pre><code class="bash">$ git remote rm origin
+$ git remote add origin git@github.com:username/repositoryname.git
+</code></pre>
+<p>Q: <strong>.gitignore not working</strong><br>NOTE: First commit your current changes, or you will lose them.</p>
+<pre><code class="bash">$ git rm  -r --cached .
+$ git add .
+$ git commit -m &quot;fixed untracked files&quot;
+</code></pre>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">3</span></a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-websiteReminder" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -257,7 +324,7 @@ var _hmt = _hmt || [];
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">2</span></a>
+	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">3</span></a>
 	</div>
 
 
@@ -348,7 +415,7 @@ hexo new [layout] <titlename>
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">2</span></a>
+	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">3</span></a>
 	</div>
 
 

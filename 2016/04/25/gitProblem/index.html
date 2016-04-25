@@ -4,39 +4,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Reminders on maintaining this Blog | Xi He - I&amp;SE Lehigh U.</title>
+  <title>Common issues you may encounter when using Git | Xi He - I&amp;SE Lehigh U.</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Useful link
-Documentation
-Q&amp;amp;A
+  <meta name="description" content="Q: fatal: remote origin already exists
+$ git remote rm origin
+$ git remote add origin git@github.com:username/repositoryname.git
 
-Create a new post$ hexo new [layout] &amp;lt;titlename&amp;gt; (ex. hexo new &amp;quot;My New Post&amp;quot;)
-
-More info: Writing
-Generate static files and test locally$ hexo s -g">
+Q: .gitignore not workingNOTE: First commit your current changes, or y">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Reminders on maintaining this Blog">
-<meta property="og:url" content="http://xihey.com/2015/08/20/websiteReminder/index.html">
+<meta property="og:title" content="Common issues you may encounter when using Git">
+<meta property="og:url" content="http://xihey.com/2016/04/25/gitProblem/index.html">
 <meta property="og:site_name" content="Xi He - I&SE Lehigh U.">
-<meta property="og:description" content="Useful link
-Documentation
-Q&amp;amp;A
+<meta property="og:description" content="Q: fatal: remote origin already exists
+$ git remote rm origin
+$ git remote add origin git@github.com:username/repositoryname.git
 
-Create a new post$ hexo new [layout] &amp;lt;titlename&amp;gt; (ex. hexo new &amp;quot;My New Post&amp;quot;)
-
-More info: Writing
-Generate static files and test locally$ hexo s -g">
-<meta property="og:updated_time" content="2016-04-25T00:31:51.000Z">
+Q: .gitignore not workingNOTE: First commit your current changes, or y">
+<meta property="og:updated_time" content="2016-04-25T04:31:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Reminders on maintaining this Blog">
-<meta name="twitter:description" content="Useful link
-Documentation
-Q&amp;amp;A
+<meta name="twitter:title" content="Common issues you may encounter when using Git">
+<meta name="twitter:description" content="Q: fatal: remote origin already exists
+$ git remote rm origin
+$ git remote add origin git@github.com:username/repositoryname.git
 
-Create a new post$ hexo new [layout] &amp;lt;titlename&amp;gt; (ex. hexo new &amp;quot;My New Post&amp;quot;)
-
-More info: Writing
-Generate static files and test locally$ hexo s -g">
+Q: .gitignore not workingNOTE: First commit your current changes, or y">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -219,11 +210,11 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-websiteReminder" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-gitProblem" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/08/20/websiteReminder/" class="article-date">
-  	<time datetime="2015-08-20T22:23:20.000Z" itemprop="datePublished">2015-08-20</time>
+      <a href="/2016/04/25/gitProblem/" class="article-date">
+  	<time datetime="2016-04-25T04:21:49.000Z" itemprop="datePublished">2016-04-25</time>
 </a>
     </div>
   
@@ -236,7 +227,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Reminders on maintaining this Blog
+      Common issues you may encounter when using Git
     </h1>
   
 
@@ -245,7 +236,7 @@ var _hmt = _hmt || [];
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Website/">Website</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
 	</div>
 
         
@@ -260,25 +251,15 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Useful_link">Useful link</h2><ul>
-<li><a href="http://hexo.io/docs/" target="_blank" rel="external">Documentation</a></li>
-<li><a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Q&amp;A</a></li>
-</ul>
-<h2 id="Create_a_new_post">Create a new post</h2><pre><code class="bash">$ hexo new [layout] &lt;titlename&gt; (ex. hexo new &quot;My New Post&quot;)
+        <p>Q: <strong>fatal: remote origin already exists</strong></p>
+<pre><code class="bash">$ git remote rm origin
+$ git remote add origin git@github.com:username/repositoryname.git
 </code></pre>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h2 id="Generate_static_files_and_test_locally">Generate static files and test locally</h2><pre><code class="bash">$ hexo s -g
+<p>Q: <strong>.gitignore not working</strong><br>NOTE: First commit your current changes, or you will lose them.</p>
+<pre><code class="bash">$ git rm  -r --cached .
+$ git add .
+$ git commit -m &quot;fixed untracked files&quot;
 </code></pre>
-<h2 id="Generate_static_files_and_deploy_to_remote_sites">Generate static files and deploy to remote sites</h2><pre><code class="bash">$ hexo d -g
-</code></pre>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a>, <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a>, <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<h2 id="Host_an_image_by_google_drive">Host an image by google drive</h2><blockquote>
-<ol>
-<li>Upload your image to your <em>google drive</em>.</li>
-<li>Change link sharing to <em>public on the web</em>.</li>
-<li>Copy the sharing link and transfer it by <a href="gdURL.com">gdURL</a>.</li>
-</ol>
-</blockquote>
 
       
     </div>
@@ -288,18 +269,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2016/04/25/gitProblem/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Common issues you may encounter when using Git
-        
-      </div>
-    </a>
   
-  
-    <a href="/2015/08/15/buildwebsite/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Use GitHub and Hexo to build a Blog</div>
+    <a href="/2015/08/20/websiteReminder/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Reminders on maintaining this Blog</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
