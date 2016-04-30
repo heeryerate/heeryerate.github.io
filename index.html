@@ -225,41 +225,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Headings">Headings</h2><h1 id="This_is_an_H1-">This is an H1.</h1><pre><code># This is an H1.
-</code></pre><h2 id="This_is_an_H2-">This is an H2.</h2><pre><code>## This is an H2.
-</code></pre><h3 id="This_is_an_H3-">This is an H3.</h3><pre><code>### This is an H23.
-</code></pre><h2 id="Character_Styles">Character Styles</h2><p><em>Italic characters</em> </p>
-<pre><code>*Italic characters*
-</code></pre><p><strong>Italic characters</strong></p>
-<pre><code>**Italic characters**
-</code></pre><p><del>Italic characters</del></p>
-<pre><code>~~Italic characters~~
-</code></pre><h2 id="Inline_code_characters">Inline code characters</h2><p>Use this <code>function()</code>.</p>
-<pre><code>Use this `function()`.
-</code></pre><h2 id="Links_to_external_websites_or_figures">Links to external websites or figures</h2><p>This is <a href="http://xihey.com/">xihey</a>.<br><img src="http://pad.haroopress.com/docs/en/markdown/images/markdown_128.png" alt="This is Markdown."><br><img src="http://pad.haroopress.com/docs/en/markdown/images/markdown_128.png" alt="This is Markdown."></p>
-<pre><code>This is [xihey](http://xihey.com/).
-![This is Markdown.](http://pad.haroopress.com/docs/en/markdown/images/markdown_128.png)
-![This is Markdown.][id]
-[id]: http://pad.haroopress.com/docs/en/markdown/images/markdown_128.png
-</code></pre><h2 id="Reference">Reference</h2><blockquote>
-<p>first item<br>second item<br>third item</p>
-</blockquote>
-<pre><code>&gt; first item
-&gt; second item
-&gt; third item
-</code></pre><h2 id="List">List</h2><ol>
-<li>first item</li>
-<li>second item<ul>
-<li>second first item</li>
-<li>second second item</li>
-</ul>
-</li>
-</ol>
-<pre><code>1. first item
-2. second item
-    * second first item
-    * second second item
-</code></pre>
+        <h2 id="Headings">Headings</h2><h1 id="This_is_an_H1-">This is an H1.</h1><h2 id="This_is_an_H2-">This is an H2.</h2><h3 id="This_is_an_H3-">This is an H3.</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is an H1.</span></span><br><span class="line"><span class="comment">## This is an H2.</span></span><br><span class="line"><span class="comment">### This is an H23.</span></span><br></pre></td></tr></table></figure>
+<h2 id="Character_Styles">Character Styles</h2><p><em>Italic characters</em>, <strong>Bold characters</strong>, <del>Deleted characters</del><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*Italic characters*, **Bold characters**, ~~Deleted characters~~</span><br></pre></td></tr></table></figure></p>
       
     </div>
     
@@ -276,6 +243,10 @@ var _hmt = _hmt || [];
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/25/basicMarkdownSyntax/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -317,15 +288,8 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Q: <strong>fatal: remote origin already exists</strong></p>
-<pre><code class="bash">$ git remote rm origin
-$ git remote add origin git@github.com:username/repositoryname.git
-</code></pre>
-<p>Q: <strong>.gitignore not working</strong><br>NOTE: First commit your current changes, or you will lose them.</p>
-<pre><code class="bash">$ git rm  -r --cached .
-$ git add .
-$ git commit -m &quot;fixed untracked files&quot;
-</code></pre>
+        <p>Q: <strong>fatal: remote origin already exists</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br><span class="line">$ git remote add origin git@github.com:username/repositoryname.git</span><br></pre></td></tr></table></figure></p>
+<p>Q: <strong>.gitignore not working</strong><br>NOTE: First commit your current changes, or you will lose them.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm  -r --cached .</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"fixed untracked files"</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -385,25 +349,14 @@ $ git commit -m &quot;fixed untracked files&quot;
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Useful_link">Useful link</h2><ul>
-<li><a href="http://hexo.io/docs/" target="_blank" rel="external">Documentation</a></li>
-<li><a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">Q&amp;A</a></li>
+<li><a href="http://hexo.io/docs/">Documentation</a></li>
+<li><a href="http://hexo.io/docs/troubleshooting.html">Q&amp;A</a></li>
 </ul>
-<h2 id="Create_a_new_post">Create a new post</h2><pre><code class="bash">$ hexo new [layout] &lt;titlename&gt; (ex. hexo new &quot;My New Post&quot;)
-</code></pre>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h2 id="Generate_static_files_and_test_locally">Generate static files and test locally</h2><pre><code class="bash">$ hexo s -g
-</code></pre>
-<h2 id="Generate_static_files_and_deploy_to_remote_sites">Generate static files and deploy to remote sites</h2><pre><code class="bash">$ hexo d -g
-</code></pre>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a>, <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a>, <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-<h2 id="Host_an_image_by_google_drive">Host an image by google drive</h2><blockquote>
-<ol>
-<li>Upload your image to your <em>google drive</em>.</li>
-<li>Change link sharing to <em>public on the web</em>.</li>
-<li>Copy the sharing link and transfer it by <a href="http://gdurl.com/" target="_blank" rel="external">gdURL</a>.</li>
-</ol>
-</blockquote>
-
+<h2 id="Create_a_new_post">Create a new post</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;titlename&gt; (ex. hexo new <span class="string">"My New Post"</span>)</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html">Writing</a></p>
+<h2 id="Generate_static_files_and_test_locally">Generate static files and test locally</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s -g</span><br></pre></td></tr></table></figure>
+<h2 id="Generate_static_files_and_deploy_to_remote_sites">Generate static files and deploy to remote sites</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html">Server</a>, <a href="http://hexo.io/docs/generating.html">Generating</a>, <a href="http://hexo.io/docs/deployment.html">Deployment</a></p>
       
     </div>
     
@@ -420,6 +373,10 @@ $ git commit -m &quot;fixed untracked files&quot;
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/20/websiteReminder/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -464,25 +421,12 @@ $ git commit -m &quot;fixed untracked files&quot;
         <p>This website is built by <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> + <a href="https://github.com/" target="_blank" rel="external">Github</a>(<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a>) + <a href="https://www.godaddy.com/" target="_blank" rel="external">Godaddy</a> + <a href="https://www.dnspod.cn/" target="_blank" rel="external">Dnspod</a>.</p>
 <p>You should have already installed <a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS</a>, which supports the <code>node.js</code> based framework, <code>Hexo</code>.</p>
 <!-- ## Install Hexo  
-``` javascript
-npm install -g hexo-cli
-```
-## Initialize a hexo website 
-``` javascript
-hexo init Blog
-```
-
-## The next step
-``` javascript
-: )
-``` -->
-<!-- ## Reminder on how to create new post
-``` javascript
-hexo new [layout] <titlename>
-```
-
-## Reminder on how to host an image by google drive
-> Share your image -->
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h2 id="Initialize_a_hexo_website">Initialize a hexo website</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init Blog</span><br></pre></td></tr></table></figure>
+<h2 id="The_next_step">The next step</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">: )</span><br><span class="line"><span class="string">``</span><span class="string">` --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- ## Reminder on how to create new post</span><br><span class="line">`</span><span class="string">``</span> javascript</span><br><span class="line">hexo <span class="keyword">new</span> [layout] &lt;titlename&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Reminder_on_how_to_host_an_image_by_google_drive">Reminder on how to host an image by google drive</h2><blockquote>
+<p>Share your image –&gt;</p>
+</blockquote>
 <!--
 <center>
 <embed src="http://arxiv.org/pdf/1510.06684.pdf" style="width:100%; height:600px;" frameborder="10">
