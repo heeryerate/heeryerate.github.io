@@ -4,21 +4,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Common issues you may encounter when using Git | Xi He</title>
+  <title>Handy commands in Linux and Troubleshooting | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Q: fatal: remote origin already exists12$ git remote rm origin$ git remote add origin git@github.com:username/repositoryname.git
-Q: .gitignore not workingNOTE: First commit your current changes, or yo">
+  <meta name="description" content="Handy Commands screen: screen command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window br">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Common issues you may encounter when using Git">
+<meta property="og:title" content="Handy commands in Linux and Troubleshooting">
 <meta property="og:url" content="http://xihey.com/2016/04/25/gitProblem/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="Q: fatal: remote origin already exists12$ git remote rm origin$ git remote add origin git@github.com:username/repositoryname.git
-Q: .gitignore not workingNOTE: First commit your current changes, or yo">
-<meta property="og:updated_time" content="2016-04-25T04:31:37.000Z">
+<meta property="og:description" content="Handy Commands screen: screen command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window br">
+<meta property="og:updated_time" content="2016-05-09T00:05:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Common issues you may encounter when using Git">
-<meta name="twitter:description" content="Q: fatal: remote origin already exists12$ git remote rm origin$ git remote add origin git@github.com:username/repositoryname.git
-Q: .gitignore not workingNOTE: First commit your current changes, or yo">
+<meta name="twitter:title" content="Handy commands in Linux and Troubleshooting">
+<meta name="twitter:description" content="Handy Commands screen: screen command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window br">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -127,7 +124,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Optimization/" style="font-size: 10px;">Optimization</a>
+						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Optimization/" style="font-size: 10px;">Optimization</a>
 					</div>
 				</section>
 				
@@ -218,7 +215,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Common issues you may encounter when using Git
+      Handy commands in Linux and Troubleshooting
     </h1>
   
 
@@ -227,7 +224,7 @@ var _hmt = _hmt || [];
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 	</div>
 
         
@@ -242,8 +239,33 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Q: <strong>fatal: remote origin already exists</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br><span class="line">$ git remote add origin git@github.com:username/repositoryname.git</span><br></pre></td></tr></table></figure></p>
-<p>Q: <strong>.gitignore not working</strong><br>NOTE: First commit your current changes, or you will lose them.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm  -r --cached .</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"fixed untracked files"</span></span><br></pre></td></tr></table></figure></p>
+        <p><center> <h2><strong>Handy Commands</strong></h2> </center><br><strong>screen</strong>: <code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
+<blockquote>
+<ol>
+<li><p>Create a session. You can easily exit current session by <code>Ctrl -a d</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen -S sessionName</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>List all sessions you have</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen -ls</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Reattach a session</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen -r sessionName</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p><strong>tee</strong>: <code>tee</code> command is used to store and view (both at the same time) the output of any other command.</p>
+<blockquote>
+<ol>
+<li><p>Write output to stdout, and also to a file (or multiple files)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls | tee file1 file2 file3</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>By default tee command overwrites the file, you can use <code>-a</code> option to append to the file</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls | tee <span class="operator">-a</span> file</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</blockquote>
+<p><center> <h2><strong>Q &amp; A</strong></h2> </center><br>Q: fatal: remote origin already exists<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br><span class="line">$ git remote add origin git@github.com:username/repositoryname.git</span><br></pre></td></tr></table></figure></p>
+<p>Q: <code>.gitignore</code> not working<br>NOTE: First commit your current changes, or you will lose them.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm  -r --cached .</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"fixed untracked files"</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -257,7 +279,7 @@ var _hmt = _hmt || [];
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Common used Markdown syntax
+          Basic Markdown syntax
         
       </div>
     </a>
