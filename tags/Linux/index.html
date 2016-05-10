@@ -4,18 +4,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Practical Newton Method fsa | Xi He</title>
+  <title>Tag: Linux | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="An brief introduction on practical newton method">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Practical Newton Method fsa">
-<meta property="og:url" content="http://xihey.com/2016/05/01/handy_commands/index.html">
+  <meta name="description" content="xihe&apos;s personal website">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Xi He">
+<meta property="og:url" content="http://xihey.com/tags/Linux/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="An brief introduction on practical newton method">
-<meta property="og:updated_time" content="2016-05-10T04:34:23.000Z">
+<meta property="og:description" content="xihe&apos;s personal website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Practical Newton Method fsa">
-<meta name="twitter:description" content="An brief introduction on practical newton method">
+<meta name="twitter:title" content="Xi He">
+<meta name="twitter:description" content="xihe&apos;s personal website">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -124,7 +123,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Optimization/" style="font-size: 20px;">Optimization</a>
+						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Optimization/" style="font-size: 10px;">Optimization</a>
 					</div>
 				</section>
 				
@@ -198,108 +197,57 @@ var _hmt = _hmt || [];
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-handy_commands" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2016/05/01/handy_commands/" class="article-date">
-  	<time datetime="2016-05-01T13:08:36.000Z" itemprop="datePublished">2016-05-01</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/04/25/handy_commands/" class="archive-article-date">
+  	<time datetime="2016-04-25T04:21:49.000Z" itemprop="datePublished">Apr 25</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Practical Newton Method fsa
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/04/25/handy_commands/">Handy commands in Linux and Troubleshooting</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Optimization/">Optimization</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 	</div>
 
-        
+          
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Maths/">Maths<span class="article-category-count">2</span></a>
+	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">4</span></a>
 	</div>
 
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Recall the basic Newton step $p_k^N$ is obtained by solving the symmetric $n\times n$ linear system<br>$$\nabla^2f(x_k)p_k^N = - \nabla f(x_k).$$</p>
-<p>It’s easy to know that once the Hessian $\nabla^2f(x_k)$ is positive definite, we are able to get a descent direction. In this post, we discuss some practical approaches to tackle the situation when $\nabla^2f(x_k)$ is indefinite or close to being singular.</p>
-<p>Local linear convergence rate is obtained if the starting point $x_0$ is sufficiently near $x*$ and satisfies the following termination condition $||r_k||\leq \eta_k||\nabla f(x_k)||$. If $\eta_k \to 0$, superlinear convergence rate is obtained and further if $\eta_k=O(||\nabla f(x_k)||)$, quadratic convergence rate is guaranteed. </p>
-<h2 id="Line_search_Newton-CG_method_(truncated_Netwon_method)">Line search Newton-CG method (truncated Netwon method)</h2><p><strong>Solve the equation by CG method, and terminating if negative curvature is encountered.</strong></p>
-<blockquote>
-<ol>
-<li>Choose the starting point for CG iteration $x^{(0)}$ (or the optimal solution of the previous linear system)</li>
-<li>If a search direction $p^{(i)}$ generated by the CG iteration satisfies $$(p^{(i)})^T\nabla f(x^{(i)}) p^{(i)} \leq 0,$$ then <ul>
-<li>if $i &gt; 0$, we stop the CG iteration immediately and return $x^{(i)}$.</li>
-<li>if $i = 0$, we choose the steepest descent direction $-\nabla f(x^{(i)})$.</li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<a id="more"></a>
-<p>A vector $p^{(i)}$ strictly satisfied the inequality in 2 is said to be <code>a direction of negative curvature</code> for $\nabla f(x^{(i)}).$</p>
-<p>The following is a general description of the Newton-CG method.</p>
-<ol>
-<li>Given initial point $x_0$;</li>
-<li>for k = 0, 1, 2, …<br>  Compute a search direction $p_k$ as described above. Terminate when $||r_k|| \leq \min(0.5, \sqrt{||\nabla f(x_k)||})||\nabla f(x_k)||$ or a negative curvature is encountered.</li>
-<li>Set $x_{k+1} = x_k + \alpha_k p_k$, where $\alpha_k$ is obtained by some line search method. </li>
-</ol>
-<h2 id="Modified_Newton_method">Modified Newton method</h2><p><strong>Modify the Hessian matrix $\nabla^2f(x_k)$ before or during the solution of the equation</strong></p>
-<h2 id="Trust-region_Newton_method">Trust-region Newton method</h2><p><strong>Exact Hessian matrix is used to solving a trust-region model</strong></p>
-<p>Reference:</p>
-<ul>
-<li><a href="http://home.agh.edu.pl/~pba/pdfdoc/Numerical_Optimization.pdf" target="_blank" rel="external">Numerical Optimization</a></li>
-</ul>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/05/01/practical_newton_method/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Practical Newton Method
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/04/25/basic_markdown_syntax/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Basic Markdown syntax</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-
-
-
+    
 
 </div>
       <!-- footer id="footer">
@@ -343,9 +291,9 @@ var _hmt = _hmt || [];
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}
