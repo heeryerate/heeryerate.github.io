@@ -1,4 +1,4 @@
-PWD /Users/Heerye/Desktop/Source/code/Xihey/public/LatexCV
+PWD /Users/Heerye/Desktop/Source/code/Xihey/source/LatexCV
 INPUT /usr/local/texlive/2014/texmf.cnf
 INPUT /usr/local/texlive/2014/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2014/texmf-var/web2c/xetex/xelatex.fmt
@@ -128,6 +128,8 @@ INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/lastpage/lastpage.sty
 INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/lastpage/lastpage.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/marvosym/marvosym.sty
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/marvosym/marvosym.sty
 INPUT XiHe_CV.aux
 INPUT XiHe_CV.aux
 OUTPUT XiHe_CV.aux
@@ -142,6 +144,9 @@ INPUT XiHe_CV.out
 INPUT XiHe_CV.out
 INPUT XiHe_CV.out
 OUTPUT XiHe_CV.out
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/marvosym/umvs.fd
+INPUT /usr/local/texlive/2014/texmf-dist/tex/latex/marvosym/umvs.fd
+INPUT /usr/local/texlive/2014/texmf-dist/fonts/tfm/public/marvosym/umvs.tfm
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 INPUT /usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/se-ascii-print.def

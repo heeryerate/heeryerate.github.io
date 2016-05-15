@@ -24,7 +24,7 @@
 %   PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass[letter,11pt]{article} % Default font size and paper size
+\documentclass[letters,11pt]{article} % Default font size and paper size
 
 % \usepackage[margin=1.5cm]{geometry}
 \usepackage[margin = 1.5cm]{geometry}
@@ -69,6 +69,8 @@
 \renewcommand{\footrulewidth}{1pt}
 \newcommand{\lst}[1]{\quad\footnotesize{$\blacktriangleright$ #1.}}
 
+\usepackage{marvosym}
+
 
 \begin{document}
 
@@ -88,7 +90,7 @@
     \begin{longtable}{c}    
 \par{\centering{\Huge \textbf{Xi} \textbf{He}}\par }\\ % Your name
 \par{\centering{837 Cedar Hill Drive, Allentown, PA, 18109}\par}\\ % Your name
-\par{\centering{(484)633-8040 \quad xih314@lehigh.edu\quad \href{xihey.com/intro}{xihey.com}}\par} \\% Your name
+\par{\centering{(484)633-8040 \quad \Email~~xih314@lehigh.edu\quad \href{http://xihey.com}{http:{\scriptsize{//}}xihey.com}}\par} \\% Your name
 % \par{\centering{(484)633-8040}\par}\\ % Your name
 % \par{\centering{\href{http://xihey.com}{http://xihey.com}}\par} % Your name
 \end{longtable}
@@ -121,21 +123,21 @@ Sep 08' - Jun 12' & \normalsize\textbf{Bachelor of Science in Nankai University,
 
 \section{Working Experience}
 \begin{longtable}{>{\centering}p{3.35cm}|p{14cm}}
-    \small{\textbf{Research Assistant}}& \textit{Department of Industrial and Systems Engineering, Lehigh University}\\\
-    \small{Nov 15 - Feb 16'}&\textbf{Dual Free Mini-batch SDCA with adaptive probabilities}\\ 
-    & \lst{Derived optimal probability distribution for dual free SDCA by exploring sub-optimality}\\
-        &\lst {Developed unbiased non-uniform mini-batch sampling techniques to improve performance}\\
- & \lst{Better complexity bound and convergence rate guarantee}\\
     \small{\textbf{Participant}}& \textit{Intel Corporation, Santa Clara, CA, USA}\\\
     \small{Aug 15' - Present}&\textbf{Large-scale Distributed Optimization in Deep Neural Networks}\\ 
     & \lst{Implemented various of standard approached to training deep learning model}\\
     &\lst {Applied distributed high performance computing technique to accelerate training rate}\\
+    \small{\textbf{Research Assistant}}& \textit{Department of Industrial and Systems Engineering, Lehigh University}\\\
+    \small{Nov 15 - Feb 16'}&\textbf{Dual Free Mini-batch SDCA with adaptive probabilities}\\ 
+    & \lst{Derived optimal probability distribution for dual free SDCA by exploring sub-optimality}\\
+        &\lst {Developed unbiased non-uniform mini-batch sampling techniques to improve performance}\\
+ & \lst{Guaranteed better complexity bound and convergence rate for the adaptive algorithm}\\
     % &\textbf{Asynchronous CoCoA}\\ 
     % & \lst{Propose asynchronous distributed algorithms for empirical minimization problem}\\
     \small{\textbf{Internship}}& \textit{Predictive Anytics and Monitoring, Siemens Corporation, Princeton, NJ, USA}\\\
     \small{June 15' - Sep 15'}&\textbf{Deep Learning via Hessian-Free Approach}\\
     & \lst{Proposed new algorithm which made use of its approximated local Hessian Matrix information}\\
-    &\lst{Guarantee to reach local optimality instead of sticking at critical point}\\
+    &\lst{Guaranteed to reach local optimality instead of sticking at critical point}\\
     % &\lst{Shared better and more stable performance}\\
     & \textbf{Estimating Large-Loss Probability in Credit Portfolio Risk}   \\
     &  \lst{Derived optimal risk loading coefficients by fully using dependency information among obligors}\\
@@ -166,11 +168,11 @@ Sep 08' - Jun 12' & \normalsize\textbf{Bachelor of Science in Nankai University,
     &\textbf{[2] Dual Free SDCA for Empirical Risk Minimization with Adaptive Probabilities}, with Martin Takáč. Accepted by NIPS 2015.\\
     &\textbf{[3] Estimating Portfolio Loss Probabilities with Optimal Risk Loading Coefficients and Fixed Dependency among Obligors,} with Amit Chakraborty, Ioannis Akrotirianakis. \\
     % &\textbf{[3] Modeling Probability of Rare Catastrophic Failure in Complex Systems Using a Copula-based Approach,} with Amit Chakraborty, Ioannis Akrotirianakis. \\
-    % &\textbf{[4] Exploiting negative curvature in deep learning optimization problems,} with Ioannis Akrotirianakis, Amit Chakraborty.\\
-    % &\textbf{[5] Asynchronous Distributed Stochastic dual (Block) Coordinate Descent Methods,} with Martin Takáč. \\
+    &\textbf{[4] Exploiting negative curvature in deep learning optimization problems,} with Ioannis Akrotirianakis, Amit Chakraborty.\\
+    &\textbf{[5] Asynchronous Distributed Stochastic dual (Block) Coordinate Descent Methods,} with Martin Takáč. \\
     \pagebreak
-    % &\textbf{[4] Coordinate Descent Methods for Linearly Constrained Optimization,} with Martin Takáč.\\
-    Journal &\textbf{[4] A Method with Parameter for Solving the Spectral Radius of Nonnegative Tensor,} with Yiyong Li, Qingzhi Yang. Under Review.
+    &\textbf{[6] Coordinate Descent Methods for Linearly Constrained Optimization,} with Martin Takáč.\\
+    Journal &\textbf{[7] A Method with Parameter for Solving the Spectral Radius of Nonnegative Tensor,} with Yiyong Li, Qingzhi Yang. Under Review.
 \end{longtable}
 
 \section{Computing Skills}
@@ -197,7 +199,7 @@ Sep 08' - Jun 12' & \normalsize\textbf{Bachelor of Science in Nankai University,
     Fall 15'& \textbf{Massive Data Mining,} Lehigh University.\\ 
     &\lst{\textbf{\emph{Question $\mbox{\&}$ Answer System:}} Designed competitive Q$\mbox{\&}$A system to attain up to 39.5\% accuracy by detecting Apache Lucene and Natural Language Toolkit, etc.}\\
     Fall 15'& \textbf{Computational Method,} Lehigh University.\\ 
-    &\lst{\textbf{\emph{Compressed Sensing:}} Made use of $\ell_1$-regularized lasso model to recovery pictures with missing pixels. Multiple algorithms (ISTA, FISTA, GRPS) are implemented in C\texttt{++} and compared}\\   
+    &\lst{\textbf{\emph{Compressed Sensing:}} Used of $\ell_1$-regularized lasso model to recovery pictures with missing pixels. Multiple algorithms (ISTA, FISTA, GRPS) are implemented in C\texttt{++} and compared}\\   
     % &\lst{\textbf{\emph{Q&A system:}} An competition at Kaggle}\\
     Spring 15'& \textbf{Pattern Recognition,} Lehigh University.\\ 
     & \lst{\textbf{\emph{Digit Recognizer:}} Implemented a Matlab software package to compare various of classifiers (Support Vector Machine, Artificial Neural Network, Decision Tree, KKN) for character-image classification problem}\\
@@ -219,9 +221,10 @@ Sep 08' - Jun 12' & \normalsize\textbf{Bachelor of Science in Nankai University,
 
 \section{Honors and Grants}
 \begin{longtable}{>{\centering}p{3.3cm}|p{14cm}}
-   Sep 15' - May 16' & Dean’s Doctoral Fellowship, Lehigh University.\\
+   Jan 16' - May 16' & Dean’s Doctoral Fellowship, Lehigh University.\\
+   Sep 15' - Jan 16' & Dean’s Doctoral Fellowship, Lehigh University.\\
    Sep 14' - Sep 15' & Dean’s Doctoral Assistantship, Lehigh University.\\
-   % Sep 13' - Jun 14' & First Prize of Excellent Master Scholarship, Nankai University.\\
+   Sep 13' - Jun 14' & First Prize of Excellent Master Scholarship, Nankai University.\\
    Sep 12' - Jun 14' & Fellowship Award, Nankai University.\\
    % Jun 12' & Excellent B.Sci Thesis, Nankai University.\\
    % Nov 11'& National Encouragement Scholarship, Nankai University.\\
