@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://xihey.com/2016/04/25/handy_commands/index.html">
 <meta property="og:site_name" content="Xi He">
 <meta property="og:description" content="A collection of handy commands">
-<meta property="og:updated_time" content="2016-07-17T15:27:37.000Z">
+<meta property="og:updated_time" content="2016-07-17T15:29:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Handy commands, Troubleshooting and Collection">
 <meta name="twitter:description" content="A collection of handy commands">
@@ -271,14 +271,14 @@
 <p><strong>awk</strong>: <code>awk</code> is <em>a text pattern scanning and processing language</em>. </p>
 <blockquote>
 <ol>
-<li>Print column of field of a file ($0 stands for the whole line and $n is the string at <em>n</em>th column.)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
+<li><p>Print column of field of a file ($0 stands for the whole line and $n is the string at <em>n</em>th column.)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
 </li>
-</ol>
-</blockquote>
-<p>One could specific field separator by the option <code>-F</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk -F<span class="string">":"</span> <span class="string">'&#123; print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<ol>
-<li>Print column by pattern (e.g. /a/ matches the line including the letter <em>a</em>)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; /a/  print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
+<li><p>One could specific field separator by the option <code>-F</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk -F<span class="string">":"</span> <span class="string">'&#123; print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Print column by pattern (e.g. /a/ matches the line including the letter <em>a</em>)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; /a/  print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </blockquote>
