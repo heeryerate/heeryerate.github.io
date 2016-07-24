@@ -100,6 +100,8 @@
 				        
 							<li><a href="/works">Works</a></li>
 				        
+							<li><a href="/news">News</a></li>
+				        
 							<li><a href="/CV">CV</a></li>
 				        
 						</ul>
@@ -174,6 +176,8 @@
 		        
 					<li><a href="/works">Works</a></li>
 		        
+					<li><a href="/news">News</a></li>
+		        
 					<li><a href="/CV">CV</a></li>
 		        
 		        <div class="clearfix"></div>
@@ -224,24 +228,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>To find a answer, I will use <code>CG</code> and its variants (<code>BiCG</code>/<code>FLR</code>) to solve some linear systems $Hx = b$ with respect to different $H$ and $b$.</p>
-<p>The CG(<a href="https://en.wikipedia.org/wiki/Conjugate_gradient_method" target="_blank" rel="external">Conjugate gradient method</a>) is </p>
+<p>The CG(<a href="https://en.wikipedia.org/wiki/Conjugate_gradient_method">Conjugate gradient method</a>) is </p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[x]</span> = <span class="title">conjgrad</span><span class="params">(A,b,x)</span></span></span><br><span class="line">    r = b - A*x;</span><br><span class="line">    p = r;</span><br><span class="line">    rsold = r<span class="operator">'</span>*r;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(b)</span><br><span class="line">        Ap = A*p;</span><br><span class="line">        alpha = rsold/(p<span class="operator">'</span>*Ap);</span><br><span class="line">        x = x + alpha*p;</span><br><span class="line">        r = r - alpha*Ap;</span><br><span class="line">        rsnew = r<span class="operator">'</span>*r;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">sqrt</span>(rsnew) &lt; <span class="number">1e-10</span></span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        p = r + (rsnew/rsold)*p;</span><br><span class="line">        rsold = rsnew;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>The following examples are designed:</p>
-<blockquote>
-<ul>
-<li>Let $H=diag(1,-1)$, $b = (1, 2)$, and $x_0=(0,0)$, CG converges in two steps.</li>
-<li>Let $H=diag(1,-1)$, $b = (1, 1)$, and $x_0=(0,0)$, CG breaks down in the first step, since $p^TAp = 0$</li>
-</ul>
-</blockquote>
-<p><strong>Conclusion:</strong> The convergece of CG method cannot be used to identify if $H$ is positive definite.</p>
-<blockquote>
-<ul>
-<li>Let $H=diag(1,-1)$, $b = (1, 2)$, and $x_0=(0,0)$, then $p^TAp &lt;0$ in second step</li>
-<li>Let $H=diag(1,-1)$, $b = (1, 0)$, and $x_0=(0,0)$, CG converges in the first step, and $p^TAp = 1 &gt;0$ in the first step, therefore no $p^TAp&lt;0$ is encountered.</li>
-</ul>
-</blockquote>
-<p><strong>Conclusion:</strong> The value $p^TAp$ is not sufficient to show if $H$ is positive definite.</p>
-
       
     </div>
     
@@ -258,6 +246,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/07/24/CG_pd/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
