@@ -4,19 +4,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Xi He</title>
+  <title>Can CG verify that a matrix is positive definite? | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="About me I am a second year Ph.D. student in Industrial &amp;amp; Systems Engineering at Lehigh University, working with Prof. Martin Takáč on developing practical algorithms and their theoretical analysi">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xi He">
-<meta property="og:url" content="http://xihey.com/intro/index.html">
+  <meta name="description" content="Investigate the connection between CG and positive definiteness of a matrix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Can CG verify that a matrix is positive definite?">
+<meta property="og:url" content="http://xihey.com/2016/07/24/CG_pd/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="About me I am a second year Ph.D. student in Industrial &amp;amp; Systems Engineering at Lehigh University, working with Prof. Martin Takáč on developing practical algorithms and their theoretical analysi">
-<meta property="og:image" content="https://745515a37222097b0902-74ef300a2b2b2d9e236c9459912aaf20.ssl.cf2.rackcdn.com/4eed73191d9a422ada63051729dc0aab.jpeg">
-<meta property="og:updated_time" content="2016-05-07T19:52:20.000Z">
+<meta property="og:description" content="Investigate the connection between CG and positive definiteness of a matrix">
+<meta property="og:updated_time" content="2016-07-24T14:40:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xi He">
-<meta name="twitter:description" content="About me I am a second year Ph.D. student in Industrial &amp;amp; Systems Engineering at Lehigh University, working with Prof. Martin Takáč on developing practical algorithms and their theoretical analysi">
+<meta name="twitter:title" content="Can CG verify that a matrix is positive definite?">
+<meta name="twitter:description" content="Investigate the connection between CG and positive definiteness of a matrix">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -197,22 +196,65 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CG_pd" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/24/CG_pd/" class="article-date">
+  	<time datetime="2016-07-24T14:28:22.000Z" itemprop="datePublished">2016-07-24</time>
+</a>
+    </div>
   
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Can CG verify that a matrix is positive definite?
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Optimization/">Optimization</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/maths/">maths<span class="article-category-count">1</span></a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p><center> <h1><strong>About me</strong></h1> </center><br>I am a second year Ph.D. student in <a href="https://ise.lehigh.edu/" target="_blank" rel="external">Industrial &amp; Systems Engineering</a> at <a href="http://www1.lehigh.edu/" target="_blank" rel="external">Lehigh University</a>, working with <a href="http://mtakac.com/" target="_blank" rel="external">Prof. Martin Takáč</a> on developing practical algorithms and their theoretical analysis for large scaled optimization problems in machine learning . </p>
-<p>Before coming to Lehigh, I earned my undergraduate degree in <a href="http://sms.nankai.edu.cn/" target="_blank" rel="external">School of Mathematical Sciences</a> of <a href="http://www.nankai.edu.cn/" target="_blank" rel="external">Nankai University</a>, Tianjin China. After that, I continued my master degree under supervisor of <a href="http://sms.nankai.edu.cn/teacher/szdw/xs003/52.html" target="_blank" rel="external">Prof. Qingzhi Yang</a> on multilinear algebra (tensor) problems. </p>
-<p>During summer 2015 I worked at <a href="http://www.usa.siemens.com/en/about_us/research/home.htm" target="_blank" rel="external">Siemens Corporate Research</a> at Princeton, NJ.</p>
-<p><div style="float:center;margin:0 10px 10px 0" markdown="1"><br>    <img src="https://745515a37222097b0902-74ef300a2b2b2d9e236c9459912aaf20.ssl.cf2.rackcdn.com/4eed73191d9a422ada63051729dc0aab.jpeg" alt="Never too late to reaD."><br></div><br><!--
-  <div style="float:center; width: 100%; height: auto;" markdown="1">
-    ![Never too late to reaD.](http://i.huffpost.com/gen/1394942/images/o-MATH-CLASSROOM-facebook.jpg)
-</div>--></p>
+        <p>To find a answer, I will use <code>CG</code> and its variants (<code>BiCG</code>/<code>FLR</code>) to solve some linear systems $Hx = b$ with respect to different $H$ and $b$.</p>
+<p>The CG(<a href="https://en.wikipedia.org/wiki/Conjugate_gradient_method" target="_blank" rel="external">Conjugate gradient method</a>) is </p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[x]</span> = <span class="title">conjgrad</span><span class="params">(A,b,x)</span></span></span><br><span class="line">    r = b - A*x;</span><br><span class="line">    p = r;</span><br><span class="line">    rsold = r<span class="operator">'</span>*r;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(b)</span><br><span class="line">        Ap = A*p;</span><br><span class="line">        alpha = rsold/(p<span class="operator">'</span>*Ap);</span><br><span class="line">        x = x + alpha*p;</span><br><span class="line">        r = r - alpha*Ap;</span><br><span class="line">        rsnew = r<span class="operator">'</span>*r;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">sqrt</span>(rsnew) &lt; <span class="number">1e-10</span></span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        p = r + (rsnew/rsold)*p;</span><br><span class="line">        rsold = rsnew;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>The following examples are designed:</p>
+<blockquote>
+<ul>
+<li>Let $H=diag(1,-1)$, $b = (1, 2)$, and $x_0=(0,0)$, CG converges in two steps.</li>
+<li>Let $H=diag(1,-1)$, $b = (1, 1)$, and $x_0=(0,0)$, CG breaks down in the first step, since $p^TAp = 0$</li>
+</ul>
+</blockquote>
+<p><strong>Conclusion:</strong> The convergece of CG method cannot be used to identify if $H$ is positive definite.</p>
+<blockquote>
+<ul>
+<li>Let $H=diag(1,-1)$, $b = (1, 2)$, and $x_0=(0,0)$, then $p^TAp &lt;0$ in second step</li>
+<li>Let $H=diag(1,-1)$, $b = (1, 0)$, and $x_0=(0,0)$, CG converges in the first step, and $p^TAp = 1 &gt;0$ in the first step, therefore no $p^TAp&lt;0$ is encountered.</li>
+</ul>
+</blockquote>
+<p><strong>Conclusion:</strong> The value $p^TAp$ is not sufficient to show if $H$ is positive definite.</p>
 
       
     </div>
@@ -220,6 +262,16 @@
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization-I/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Notes on Introductory Lectures on Convex Optimization ( I )</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -273,7 +325,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
