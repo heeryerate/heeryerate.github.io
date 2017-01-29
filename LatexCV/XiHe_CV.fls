@@ -131,6 +131,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/lastpage/lastpage.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/lastpage/lastpage.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/natbib/bibentry.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/natbib/bibentry.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/marvosym/marvosym.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/marvosym/marvosym.sty
 INPUT XiHe_CV.aux

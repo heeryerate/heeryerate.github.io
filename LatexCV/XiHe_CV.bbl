@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{he2016large}
+Xi~He, Dheevatsa Mudigere, Mikhail Smelyanskiy, and Martin Tak{\'a}{\v{c}}.
+\newblock Large scale distributed hessian-free optimization for deep neural
+  network.
+\newblock {\em arXiv preprint arXiv:1606.00511}, 2016.
+
+\bibitem{he2015estimating}
+Xi~He, Ioannis Akrotirianakis, and Amit Chakraborty.
+\newblock Estimating portfolio loss probabilities with optimal risk loading
+  coefficients and fixed dependency among obligors.
+\newblock 2015.
+
+\bibitem{he2015dual}
+Xi~He and Martin Tak{\'a}{\v{c}}.
+\newblock Dual free sdca for empirical risk minimization with adaptive
+  probabilities.
+\newblock {\em arXiv preprint arXiv:1510.06684}, 2015.
+
+\bibitem{li2016method}
+Yi-Yong Li, Qing-Zhi Yang, and Xi~He.
+\newblock A method with parameter for solving the spectral radius of
+  nonnegative tensor.
+\newblock {\em Journal of the Operations Research Society of China}, pages
+  1--23, 2016.
+
+\end{thebibliography}
