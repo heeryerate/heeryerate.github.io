@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Old sty class v.s. new sty class | Xi He</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Is there any reason for a class declaration to inherit from object?
+In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
+Python 2.x story:In Python 2.x (from 2.2 onward)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Old sty class v.s. new sty class">
+<meta property="og:url" content="http://xihey.com/2017/08/02/old_sty_class_vs_new_sty_class/index.html">
+<meta property="og:site_name" content="Xi He">
+<meta property="og:description" content="Is there any reason for a class declaration to inherit from object?
+In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
+Python 2.x story:In Python 2.x (from 2.2 onward)">
+<meta property="og:updated_time" content="2017-08-29T12:11:09.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Old sty class v.s. new sty class">
+<meta name="twitter:description" content="Is there any reason for a class declaration to inherit from object?
+In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
+Python 2.x story:In Python 2.x (from 2.2 onward)">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+    <!--<link rel="icon" href="favicon.ico">-->
+     <!--<link href="/favicon.ico" rel="icon" type="image/x-ico">-->
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-66373249-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/intro" class="profilepic">
+			
+			<img lazy-src="https://imagizer.imageshack.us/v2/535x535q90/923/Pt63aa.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/archives">Xi He</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Make it clear</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+                                                    
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Home</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/intro">About me</a></li>
+				        
+							<li><a href="/works">Works</a></li>
+				        
+							<li><a href="/news">News</a></li>
+				        
+							<li><a href="/CV">CV</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/heeryerate" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/edit-picture-info?trk=hp-identity-camera-icon&_l=en_US" title="linkedin">linkedin</a>
+					        
+								<a class="facebook" target="_blank" href="https://www.facebook.com/heerye" title="facebook">facebook</a>
+					        
+								<a class="mail" target="_blank" href="mailto:xih314@lehigh.edu" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://mtakac.com/">Martin Takac</a><br>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://optml.lehigh.edu/">OptML</a><br>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://ise.lehigh.edu/">ISE</a><br>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www1.lehigh.edu/">Lehigh</a><br>
+			        
+			        </div>
+				</section>
+				
+
+                                
+			</div>
+		</div>
+        <script type="text/javascript" src="http://counter8.freecounter.ovh/private/counter.js?c=7d044c354ea4ce48c23087b4cfef7a74"></script>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Xi He</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="https://imagizer.imageshack.us/v2/535x535q90/923/Pt63aa.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Xi He</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Make it clear</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/intro">About me</a></li>
+		        
+					<li><a href="/works">Works</a></li>
+		        
+					<li><a href="/news">News</a></li>
+		        
+					<li><a href="/CV">CV</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/heeryerate" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/profile/edit-picture-info?trk=hp-identity-camera-icon&_l=en_US" title="linkedin">linkedin</a>
+			        
+						<a class="facebook" target="_blank" href="https://www.facebook.com/heerye" title="facebook">facebook</a>
+			        
+						<a class="mail" target="_blank" href="mailto:xih314@lehigh.edu" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-old_sty_class_vs_new_sty_class" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/02/old_sty_class_vs_new_sty_class/" class="article-date">
+  	<time datetime="2017-08-02T22:23:20.000Z" itemprop="datePublished">2017-08-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Old sty class v.s. new sty class
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/programing/">programing<span class="article-category-count">1</span></a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<h3 id="Is_there_any_reason_for_a_class_declaration_to_inherit_from_object?">Is there any reason for a class declaration to inherit from <code>object</code>?</h3></blockquote>
+<p>In Python 3, apart from compatibility between Python 2 and 3, <em>no</em>. In Python 2, <em>yes</em>.</p>
+<h3 id="Python_2-x_story:">Python 2.x story:</h3><p>In Python 2.x (from 2.2 onward) there’s two styles of classes depending on the presence or absence of a built-in type as a base-class:</p>
+<ul>
+<li><strong>“classic” style</strong> classes: they have no built-in type as a base class:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span>      <span class="comment"># no base class</span></span><br><span class="line"><span class="prompt">... </span>    <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>ClassicSpam.__bases__</span><br><span class="line">()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>“new” style</strong> classes: they have a built-in type as a base class meaning that, directly or indirectly, they have <code>object</code> as a base class:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span>           <span class="comment"># directly inherit from object</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>NewSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">IntSpam</span><span class="params">(int)</span>:</span>              <span class="comment"># indirectly inherit from object...</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'int'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__[<span class="number">0</span>].__bases__   <span class="comment"># ... because int inherits from object</span></span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br></pre></td></tr></table></figure>
+<p>Without a doubt, when writing a class you’ll <em>always</em> want to go for new-style classes. The perks of doing so are numerous, to list some of them:</p>
+<ul>
+<li>Support for descriptors. <code>classmethod</code>, <code>staticmethod</code>, properties.</li>
+<li>Method resolution order (MRO): in what order the base classes of a class will be searched when trying to resolve which method to call.</li>
+<li>Related to MRO, <code>super</code> calls.</li>
+</ul>
+<p>One of the downsides of new-style classes is that the class itself is more memory demanding. Unless you’re creating many class objects, though, I doubt this would be an issue and it’s a negative sinking in a sea of positives.</p>
+<h3 id="Python_3-x_story:">Python 3.x story:</h3><p>In Python 3, things are simplified. Only new-style classes exist (referred to plainly as classes) so, the only difference in adding <code>object</code> is requiring you to type in 8 more characters. This:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>is completely equivalent (apart from their name :-) to this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>and to this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spam</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>all have <code>object</code> in their <code>__bases__</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>[object <span class="keyword">in</span> cls.__bases__ <span class="keyword">for</span> cls <span class="keyword">in</span> &#123;Spam, NewSpam, ClassicSpam&#125;]</span><br><span class="line">[<span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="What_should_you_do?">What should you do?</h2><p><strong>In Python 2:</strong> always inherit from <code>object</code> explicitly. Get the perks.</p>
+<p><strong>In Python 3:</strong> only inherit from <code>object</code> if you are writing code that tries to be Python agnostic, that is, it needs to work both in Python 2 and in Python 3. Otherwise don’t, it really makes no difference.</p>
+<p>Reference:</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/45062077/4808456" target="_blank" rel="external">stackoverflow</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/08/22/mpi4py_on_windows/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Using mpi4py
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/24/Can-CG-verify-that-a-matrix/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Can CG verify that a matrix is positive definite?</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <!-- footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 Xi He
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer> -->
+
+<!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 <a href="mailto:xih314@lehigh.edu" target="_blank"> Xi He </a>
+          </div> 
+  </div>
+</footer>-->
+
+<footer id="footer">
+      <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 <a href="/more" target="_blank"> Xi He
+          </div> 
+  </div>
+            <!-- <span id="busuanzi_container_site_uv">Total visitor <span id="busuanzi_value_site_uv"></span></span> -->   
+            <!-- <span id="busuanzi_container_site_pv">Total page visits<span id="busuanzi_value_site_pv"></span></span> -->
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

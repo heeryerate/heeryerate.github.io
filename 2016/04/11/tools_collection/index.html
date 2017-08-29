@@ -4,18 +4,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Handy commands, Troubleshooting and Collection | Xi He</title>
+  <title>Tools collection | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A collection of handy commands">
+  <meta name="description" content="A collection of useful tools">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Handy commands, Troubleshooting and Collection">
-<meta property="og:url" content="http://xihey.com/2016/04/24/handy_commands/index.html">
+<meta property="og:title" content="Tools collection">
+<meta property="og:url" content="http://xihey.com/2016/04/11/tools_collection/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="A collection of handy commands">
-<meta property="og:updated_time" content="2016-07-30T00:49:16.000Z">
+<meta property="og:description" content="A collection of useful tools">
+<meta property="og:updated_time" content="2017-08-29T12:12:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Handy commands, Troubleshooting and Collection">
-<meta name="twitter:description" content="A collection of handy commands">
+<meta name="twitter:title" content="Tools collection">
+<meta name="twitter:description" content="A collection of useful tools">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -53,7 +53,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">He who hesitates is lost.</p>
+		<p class="header-subtitle">Make it clear</p>
 		
 
 		
@@ -101,6 +101,8 @@
 				        
 							<li><a href="/works">Works</a></li>
 				        
+							<li><a href="/news">News</a></li>
+				        
 							<li><a href="/CV">CV</a></li>
 				        
 						</ul>
@@ -123,7 +125,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Optimization/" style="font-size: 20px;">Optimization</a>
+						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
 					</div>
 				</section>
 				
@@ -166,7 +168,7 @@
 			  <h1 class="header-author">Xi He</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">He who hesitates is lost.</p>
+			<p class="header-subtitle">Make it clear</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -174,6 +176,8 @@
 					<li><a href="/intro">About me</a></li>
 		        
 					<li><a href="/works">Works</a></li>
+		        
+					<li><a href="/news">News</a></li>
 		        
 					<li><a href="/CV">CV</a></li>
 		        
@@ -196,11 +200,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-handy_commands" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-tools_collection" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/24/handy_commands/" class="article-date">
-  	<time datetime="2016-04-25T04:21:49.000Z" itemprop="datePublished">2016-04-24</time>
+      <a href="/2016/04/11/tools_collection/" class="article-date">
+  	<time datetime="2016-04-11T19:34:28.000Z" itemprop="datePublished">2016-04-11</time>
 </a>
     </div>
   
@@ -213,7 +217,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Handy commands, Troubleshooting and Collection
+      Tools collection
     </h1>
   
 
@@ -221,13 +225,9 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-	</div>
-
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">4</span></a>
+	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">6</span></a>
 	</div>
 
 
@@ -237,53 +237,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><center> <h2><strong>Handy Commands</strong></h2> </center><br><strong>screen</strong>: <code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
-<blockquote>
-<ol>
-<li><p>Create a session. You can easily exit current session by <code>Ctrl -a d</code> or terminate a session by <code>Ctrl -r d</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>List all sessions you have</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen -ls</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Reattach a session</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen -r sessionName</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<a id="more"></a>
-<p><strong>tee</strong>: <code>tee</code> command is used to store and view (both at the same time) the output of any other command.</p>
-<blockquote>
-<ol>
-<li><p>Write output to stdout, and also to a file (or multiple files)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls | tee file1 file2 file3</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>By default tee command overwrites the file, you can use <code>-a</code> option to append to the file</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls | tee <span class="operator">-a</span> file</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p><strong>tldr</strong>: <code>tldr</code> means <em>too long, don’t read</em> :). It is a collection of simplified and community-drive man pages. see <a href="https://github.com/tldr-pages/tldr" target="_blank" rel="external">tldr</a>. A <a href="http://www.ostera.io/tldr.jsx/#/?_k=czxd48" target="_blank" rel="external">web client</a> is available as well.</p>
-<p><strong>awk</strong>: <code>awk</code> is <em>a text pattern scanning and processing language</em>. </p>
-<blockquote>
-<ol>
-<li><p>Print column of field of a file ($0 stands for the whole line and $n is the string at <em>n</em>th column.)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>One could specific field separator by the option <code>-F</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk -F<span class="string">":"</span> <span class="string">'&#123; print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Print column by pattern (e.g. /a/ matches the line including the letter <em>a</em>)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; /a/  print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Replace unwanted character (e.g. replace chacter <em>a</em> to <em>b</em> in forth column. <em>b</em> could be whitespace, therefore delete)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; sub(/a/,"b",$4)  print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</blockquote>
-<p><center> <h2><strong>Q &amp; A</strong></h2> </center><br>Q: fatal: remote origin already exists<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br><span class="line">$ git remote add origin git@github.com:username/repositoryname.git</span><br></pre></td></tr></table></figure></p>
-<p>Q: <code>.gitignore</code> not working<br>NOTE: First commit your current changes, or you will lose them.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm  -r --cached .</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"fixed untracked files"</span></span><br></pre></td></tr></table></figure></p>
-<p><center> <h2><strong>Collection</strong></h2> </center><br>Efficient diagram tools <a href="https://www.lucidchart.com/documents#docs?folder_id=home&amp;browser=icon&amp;sort=saved-desc" target="_blank" rel="external">Lucidchart</a></p>
+        <p>Efficient diagram tools <a href="https://www.lucidchart.com/documents#docs?folder_id=home&amp;browser=icon&amp;sort=saved-desc" target="_blank" rel="external">Lucidchart</a></p>
 <p>Mind Mapping tools <a href="https://coggle.it/" target="_blank" rel="external">coggle</a></p>
 <p>A beamer latex template for me <a href="https://goo.gl/T54a1G" target="_blank" rel="external">template_xi</a></p>
 
@@ -295,11 +249,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/04/24/basic_markdown_syntax/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/25/handy_commands/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Basic Markdown syntax
+          Handy commands
         
       </div>
     </a>

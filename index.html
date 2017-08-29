@@ -52,7 +52,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">He who hesitates is lost.</p>
+		<p class="header-subtitle">Make it clear</p>
 		
 
 		
@@ -100,6 +100,8 @@
 				        
 							<li><a href="/works">Works</a></li>
 				        
+							<li><a href="/news">News</a></li>
+				        
 							<li><a href="/CV">CV</a></li>
 				        
 						</ul>
@@ -122,7 +124,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Hexo/" style="font-size: 15px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Optimization/" style="font-size: 20px;">Optimization</a>
+						<a href="/tags/Editor/" style="font-size: 10px;">Editor</a> <a href="/tags/Hexo/" style="font-size: 20px;">Hexo</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/python/" style="font-size: 20px;">python</a>
 					</div>
 				</section>
 				
@@ -165,7 +167,7 @@
 			  <h1 class="header-author">Xi He</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">He who hesitates is lost.</p>
+			<p class="header-subtitle">Make it clear</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -173,6 +175,8 @@
 					<li><a href="/intro">About me</a></li>
 		        
 					<li><a href="/works">Works</a></li>
+		        
+					<li><a href="/news">News</a></li>
 		        
 					<li><a href="/CV">CV</a></li>
 		        
@@ -196,6 +200,277 @@
 	</div>
 </nav>
       <div class="body-wrap">
+  
+    <article id="post-float-representation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/24/float-representation/" class="article-date">
+  	<time datetime="2017-08-24T18:07:46.000Z" itemprop="datePublished">2017-08-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/24/float-representation/">Float representation in C++</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The third test is wired. What happed on earth when computing <code>float</code> number <code>a</code>, why it could return the correct result even the first part of computations makes the result to <code>0</code>?</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;bitset&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// test 1</span></span><br><span class="line">    <span class="comment">// int a = 0;</span></span><br><span class="line">    <span class="comment">// int b = 0;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &amp;a &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &amp;b &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// test 2</span></span><br><span class="line">    <span class="comment">// float a = 0.010;</span></span><br><span class="line">    <span class="comment">// float b = 0.01;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &amp;a &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; &amp;b &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; *(&amp;a) &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">// cout &lt;&lt; *(&amp;b) &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// test 3</span></span><br><span class="line">    <span class="keyword">float</span> N = <span class="number">132423000009977.0</span>;</span><br><span class="line">    <span class="keyword">float</span> a = <span class="number">1.0</span> / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N;</span><br><span class="line">    <span class="keyword">float</span> b = <span class="number">1.0</span> / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N / N;</span><br><span class="line">    <span class="keyword">float</span> c = b * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N * N;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"a: "</span> &lt;&lt; <span class="built_in">bitset</span>&lt;<span class="keyword">sizeof</span> a * 8&gt;(*(<span class="keyword">long</span> <span class="keyword">unsigned</span> <span class="keyword">int</span>*)(&amp;a)) &lt;&lt; <span class="string">" "</span> &lt;&lt; a &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"b: "</span> &lt;&lt; <span class="built_in">bitset</span>&lt;<span class="keyword">sizeof</span> a * 8&gt;(*(<span class="keyword">long</span> <span class="keyword">unsigned</span> <span class="keyword">int</span>*)(&amp;b)) &lt;&lt; <span class="string">" "</span> &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"c: "</span> &lt;&lt; <span class="built_in">bitset</span>&lt;<span class="keyword">sizeof</span> a * 8&gt;(*(<span class="keyword">long</span> <span class="keyword">unsigned</span> <span class="keyword">int</span>*)(&amp;c)) &lt;&lt; <span class="string">" "</span> &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Result:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a: <span class="number">01010110111100001110000001000100</span> <span class="number">1.32423e+14</span></span><br><span class="line">b: <span class="number">00000000000000000000000000000000</span> <span class="number">0</span></span><br><span class="line">c: <span class="number">00000000000000000000000000000000</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/programming/">programming<span class="article-category-count">2</span></a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-using_mpi4py" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/22/using_mpi4py/" class="article-date">
+  	<time datetime="2017-08-22T22:23:20.000Z" itemprop="datePublished">2017-08-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/22/using_mpi4py/">Using mpi4py</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>MPI</code> stands for <strong>Message passing interface</strong> and is used to write parallel programs in a distributed system such as a Linux cluster with distributed memory. Usually, <code>MPI</code> is implemented by <code>MPICH</code> or <code>OpenMPI</code> and works in <code>C</code>. During the last two years I’m working on some projects using <code>MPI</code> in <code>C++</code>, even there exist great library like <code>boost</code> which provides an easy wrapper of <code>MPI</code>, what I have tried recently in python is incredibly friendly to use.</p>
+<p>This short blog is to demonstrate the use of <code>MPI</code> in <code>python</code> with a module named <a href="http://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="external">mpi4py</a>. It is very easy and straightforward to use.</p>
+<p>First, I will show how to use <code>mpi4py</code> and later on will show how to install and use <code>mpi4py</code> on both linux and windows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mpi4py</span><br></pre></td></tr></table></figure>
+<p>Reference:<br><a href="http://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="external">mpi4py</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/programming/">programming<span class="article-category-count">2</span></a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-mpi4py_on_windows" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/22/mpi4py_on_windows/" class="article-date">
+  	<time datetime="2017-08-22T22:23:20.000Z" itemprop="datePublished">2017-08-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/22/mpi4py_on_windows/">Using mpi4py</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>MPI</code> stands for <strong>Message passing interface</strong> and is used to write parallel programs in a distributed system such as a Linux cluster with distributed memory. Usually, <code>MPI</code> is implemented by <code>MPICH</code> or <code>OpenMPI</code> and works in <code>C</code>. During the last two years I’m working on some projects using <code>MPI</code> in <code>C++</code>, even there exist great library like <code>boost</code> which provides an easy wrapper of <code>MPI</code>, what I have tried recently in python is incredibly friendly to use.</p>
+<p>This short blog is to demonstrate the use of <code>MPI</code> in <code>python</code> with a module named <a href="http://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="external">mpi4py</a>. It is very easy and straightforward to use.</p>
+<p>First, I will show how to use <code>mpi4py</code> and later on will show how to install and use <code>mpi4py</code> on both linux and windows.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mpi4py</span><br></pre></td></tr></table></figure>
+<p>Reference:</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-old_sty_class_vs_new_sty_class" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/02/old_sty_class_vs_new_sty_class/" class="article-date">
+  	<time datetime="2017-08-02T22:23:20.000Z" itemprop="datePublished">2017-08-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/02/old_sty_class_vs_new_sty_class/">Old sty class v.s. new sty class</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<h3 id="Is_there_any_reason_for_a_class_declaration_to_inherit_from_object?">Is there any reason for a class declaration to inherit from <code>object</code>?</h3></blockquote>
+<p>In Python 3, apart from compatibility between Python 2 and 3, <em>no</em>. In Python 2, <em>yes</em>.</p>
+<h3 id="Python_2-x_story:">Python 2.x story:</h3><p>In Python 2.x (from 2.2 onward) there’s two styles of classes depending on the presence or absence of a built-in type as a base-class:</p>
+<ul>
+<li><strong>“classic” style</strong> classes: they have no built-in type as a base class:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span>      <span class="comment"># no base class</span></span><br><span class="line"><span class="prompt">... </span>    <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>ClassicSpam.__bases__</span><br><span class="line">()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>“new” style</strong> classes: they have a built-in type as a base class meaning that, directly or indirectly, they have <code>object</code> as a base class:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span>           <span class="comment"># directly inherit from object</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>NewSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">IntSpam</span><span class="params">(int)</span>:</span>              <span class="comment"># indirectly inherit from object...</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'int'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__[<span class="number">0</span>].__bases__   <span class="comment"># ... because int inherits from object</span></span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br></pre></td></tr></table></figure>
+<p>Without a doubt, when writing a class you’ll <em>always</em> want to go for new-style classes. The perks of doing so are numerous, to list some of them:</p>
+<ul>
+<li>Support for descriptors. <code>classmethod</code>, <code>staticmethod</code>, properties.</li>
+<li>Method resolution order (MRO): in what order the base classes of a class will be searched when trying to resolve which method to call.</li>
+<li>Related to MRO, <code>super</code> calls.</li>
+</ul>
+<p>One of the downsides of new-style classes is that the class itself is more memory demanding. Unless you’re creating many class objects, though, I doubt this would be an issue and it’s a negative sinking in a sea of positives.</p>
+<h3 id="Python_3-x_story:">Python 3.x story:</h3><p>In Python 3, things are simplified. Only new-style classes exist (referred to plainly as classes) so, the only difference in adding <code>object</code> is requiring you to type in 8 more characters. This:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>is completely equivalent (apart from their name :-) to this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>and to this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spam</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>all have <code>object</code> in their <code>__bases__</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>[object <span class="keyword">in</span> cls.__bases__ <span class="keyword">for</span> cls <span class="keyword">in</span> &#123;Spam, NewSpam, ClassicSpam&#125;]</span><br><span class="line">[<span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="What_should_you_do?">What should you do?</h2><p><strong>In Python 2:</strong> always inherit from <code>object</code> explicitly. Get the perks.</p>
+<p><strong>In Python 3:</strong> only inherit from <code>object</code> if you are writing code that tries to be Python agnostic, that is, it needs to work both in Python 2 and in Python 3. Otherwise don’t, it really makes no difference.</p>
+<p>Reference:</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/45062077/4808456" target="_blank" rel="external">stackoverflow</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/programing/">programing<span class="article-category-count">1</span></a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
   
     <article id="post-Can-CG-verify-that-a-matrix" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -245,13 +520,9 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Optimization/">Optimization</a></li></ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Maths/">Maths<span class="article-category-count">3</span></a>
+	<a class="article-category-link" href="/categories/optimization/">optimization<span class="article-category-count">3</span></a>
 	</div>
 
 
@@ -308,13 +579,9 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Optimization/">Optimization</a></li></ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Maths/">Maths<span class="article-category-count">3</span></a>
+	<a class="article-category-link" href="/categories/optimization/">optimization<span class="article-category-count">3</span></a>
 	</div>
 
 
@@ -361,12 +628,12 @@
       
         <p>Recall the basic Newton step $p_k^N$ is obtained by solving the symmetric $n\times n$ linear system<br>$$\nabla^2f(x_k)p_k^N = - \nabla f(x_k).$$</p>
 <p>It’s easy to know that once the Hessian $\nabla^2f(x_k)$ is positive definite, we are able to get a descent direction. In this post, we discuss some practical approaches to tackle the situation when $\nabla^2f(x_k)$ is indefinite or close to being singular.</p>
-<p>Local linear convergence rate is obtained if the starting point $x_0$ is sufficiently near $x*$ and satisfies the following termination condition $||r_k||\leq \eta_k||\nabla f(x_k)||$. If $\eta_k \to 0$, superlinear convergence rate is obtained and further if $\eta_k=O(||\nabla f(x_k)||)$, quadratic convergence rate is guaranteed. </p>
+<p>Local linear convergence rate is obtained if the starting point $x_0$ is sufficiently near $x*$ and satisfies the following termination condition $||r_k||\leq \eta_k||\nabla f(x_k)||$. If $\eta_k \to 0$, superlinear convergence rate is obtained and further if $\eta_k=O(||\nabla f(x_k)||)$, quadratic convergence rate is guaranteed.</p>
 <h2 id="Line_search_Newton-CG_method_(truncated_Netwon_method)">Line search Newton-CG method (truncated Netwon method)</h2><p><strong>Solve the equation by CG method, and terminating if negative curvature is encountered.</strong></p>
 <blockquote>
 <ol>
 <li>Choose the starting point for CG iteration $x^{(0)}$ (or the optimal solution of the previous linear system)</li>
-<li>If a search direction $p^{(i)}$ generated by the CG iteration satisfies $$(p^{(i)})^T\nabla f(x^{(i)}) p^{(i)} \leq 0,$$ then <ul>
+<li>If a search direction $p^{(i)}$ generated by the CG iteration satisfies $$(p^{(i)})^T\nabla f(x^{(i)}) p^{(i)} \leq 0,$$ then<ul>
 <li>if $i &gt; 0$, we stop the CG iteration immediately and return $x^{(i)}$.</li>
 <li>if $i = 0$, we choose the steepest descent direction $-\nabla f(x^{(i)})$.</li>
 </ul>
@@ -379,13 +646,9 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Optimization/">Optimization</a></li></ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Maths/">Maths<span class="article-category-count">3</span></a>
+	<a class="article-category-link" href="/categories/optimization/">optimization<span class="article-category-count">3</span></a>
 	</div>
 
 
@@ -408,11 +671,11 @@
 
 
   
-    <article id="post-basic_markdown_syntax" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-trouble_shooting" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/24/basic_markdown_syntax/" class="article-date">
-  	<time datetime="2016-04-25T04:34:52.000Z" itemprop="datePublished">2016-04-24</time>
+      <a href="/2016/04/27/trouble_shooting/" class="article-date">
+  	<time datetime="2016-04-27T06:11:29.000Z" itemprop="datePublished">2016-04-27</time>
 </a>
     </div>
   
@@ -425,7 +688,65 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/24/basic_markdown_syntax/">Basic Markdown syntax</a>
+      <a class="article-title" href="/2016/04/27/trouble_shooting/">Troubleshootings</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Q: fatal: remote origin already exists<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br><span class="line">$ git remote add origin git@github.com:username/repositoryname.git</span><br></pre></td></tr></table></figure></p>
+<p>or reset the remote git repository</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">set</span>-url origin https://&lt;gitpath&gt;/.git</span><br></pre></td></tr></table></figure>
+<p>Q: <code>.gitignore</code> not working<br>NOTE: First commit your current changes, or you will lose them.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm  -r --cached .</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"fixed untracked files"</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">6</span></a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-basic_markdown_syntax" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/25/basic_markdown_syntax/" class="article-date">
+  	<time datetime="2016-04-25T04:34:52.000Z" itemprop="datePublished">2016-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/25/basic_markdown_syntax/">Markdown cheatsheet</a>
     </h1>
   
 
@@ -448,13 +769,13 @@
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">4</span></a>
+	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">6</span></a>
 	</div>
 
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/24/basic_markdown_syntax/#more">more >></a>
+          <a  href="/2016/04/25/basic_markdown_syntax/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -474,8 +795,8 @@
     <article id="post-handy_commands" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/24/handy_commands/" class="article-date">
-  	<time datetime="2016-04-25T04:21:49.000Z" itemprop="datePublished">2016-04-24</time>
+      <a href="/2016/04/25/handy_commands/" class="article-date">
+  	<time datetime="2016-04-25T04:21:49.000Z" itemprop="datePublished">2016-04-25</time>
 </a>
     </div>
   
@@ -488,7 +809,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/24/handy_commands/">Handy commands, Troubleshooting and Collection</a>
+      <a class="article-title" href="/2016/04/25/handy_commands/">Handy commands</a>
     </h1>
   
 
@@ -497,8 +818,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><center> <h2><strong>Handy Commands</strong></h2> </center><br><strong>screen</strong>: <code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
-<blockquote>
+        <p><strong>screen</strong>: <code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
 <ol>
 <li><p>Create a session. You can easily exit current session by <code>Ctrl -a d</code> or terminate a session by <code>Ctrl -r d</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen</span><br></pre></td></tr></table></figure>
@@ -510,7 +830,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen -r sessionName</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-</blockquote>
       
     </div>
     
@@ -523,13 +842,13 @@
 
       
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">4</span></a>
+	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">6</span></a>
 	</div>
 
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/24/handy_commands/#more">more >></a>
+          <a  href="/2016/04/25/handy_commands/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -546,153 +865,10 @@
 
 
   
-    <article id="post-reminder_on_maintaining_website" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/08/20/reminder_on_maintaining_website/" class="article-date">
-  	<time datetime="2015-08-20T22:23:20.000Z" itemprop="datePublished">2015-08-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/20/reminder_on_maintaining_website/">Reminders on maintaining this Blog</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Useful_link">Useful link</h2><ul>
-<li><a href="http://hexo.io/docs/">Documentation</a></li>
-<li><a href="http://hexo.io/docs/troubleshooting.html">Q&amp;A</a></li>
-</ul>
-<h2 id="Create_a_new_post">Create a new post</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;titlename&gt; (ex. hexo new <span class="string">"My New Post"</span>)</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html">Writing</a></p>
-<h2 id="Generate_static_files_and_test_locally">Generate static files and test locally</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s -g</span><br></pre></td></tr></table></figure>
-<h2 id="Generate_static_files_and_deploy_to_remote_sites">Generate static files and deploy to remote sites</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html">Server</a>, <a href="http://hexo.io/docs/generating.html">Generating</a>, <a href="http://hexo.io/docs/deployment.html">Deployment</a></p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">4</span></a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/20/reminder_on_maintaining_website/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-build_website" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/15/build_website/" class="article-date">
-  	<time datetime="2015-08-15T14:28:22.000Z" itemprop="datePublished">2015-08-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/15/build_website/">Use GitHub and Hexo to build a Blog</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>This website is built by <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a> + <a href="https://github.com/" target="_blank" rel="external">Github</a>(<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a>) + <a href="https://www.godaddy.com/" target="_blank" rel="external">Godaddy</a> + <a href="https://www.dnspod.cn/" target="_blank" rel="external">Dnspod</a>.</p>
-<p>You should have already installed <a href="https://nodejs.org/en/" target="_blank" rel="external">NodeJS</a>, which supports the <code>node.js</code> based framework, <code>Hexo</code>.</p>
-<!-- ## Install Hexo  
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h2 id="Initialize_a_hexo_website">Initialize a hexo website</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init Blog</span><br></pre></td></tr></table></figure>
-<h2 id="The_next_step">The next step</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">: )</span><br><span class="line"><span class="string">``</span><span class="string">` --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- ## Reminder on how to create new post</span><br><span class="line">`</span><span class="string">``</span> javascript</span><br><span class="line">hexo <span class="keyword">new</span> [layout] &lt;titlename&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Reminder_on_how_to_host_an_image_by_google_drive">Reminder on how to host an image by google drive</h2><blockquote>
-<p>Share your image –&gt;</p>
-</blockquote>
-<!--
-<center>
-<embed src="http://arxiv.org/pdf/1510.06684.pdf" style="width:100%; height:600px;" frameborder="10">
-</center>
--->
-<p>Reference:</p>
-<ul>
-<li><a href="http://michaelarnel.com/2015/03/01/Building-A-Website-With-Hexo-io/" target="_blank" rel="external">Building A Website With Hexo.io</a></li>
-<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">Hexo your blog</a></li>
-</ul>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/tech/">tech<span class="article-category-count">4</span></a>
-	</div>
-
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <!-- footer id="footer">
