@@ -4,19 +4,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Xi He</title>
+  <title>Complexity results in nonlinear programming | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="distributed_Hessian-free">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xi He">
-<meta property="og:url" content="http://xihey.com/codes/Distributed_Hessian-free.html">
+  <meta name="description" content="We are considering a continuous variable, smooth, and nonconvex nonlinear programming as following$$\min_{\mathbb{R}^n} f(x)$$
+The complexity of checking whether
+
+a given feasible solution is not a lo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Complexity results in nonlinear programming">
+<meta property="og:url" content="http://xihey.com/2017/08/29/Complexity-results-in-nonlinear-programming/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="distributed_Hessian-free">
-<meta property="og:image" content="http://imageshack.com/a/img923/7456/Wcppfi.png">
-<meta property="og:updated_time" content="2017-02-13T04:26:14.000Z">
+<meta property="og:description" content="We are considering a continuous variable, smooth, and nonconvex nonlinear programming as following$$\min_{\mathbb{R}^n} f(x)$$
+The complexity of checking whether
+
+a given feasible solution is not a lo">
+<meta property="og:updated_time" content="2017-08-29T15:47:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xi He">
-<meta name="twitter:description" content="distributed_Hessian-free">
+<meta name="twitter:title" content="Complexity results in nonlinear programming">
+<meta name="twitter:description" content="We are considering a continuous variable, smooth, and nonconvex nonlinear programming as following$$\min_{\mathbb{R}^n} f(x)$$
+The complexity of checking whether
+
+a given feasible solution is not a lo">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -197,23 +205,74 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Complexity-results-in-nonlinear-programming" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/08/29/Complexity-results-in-nonlinear-programming/" class="article-date">
+  	<time datetime="2017-08-29T15:27:58.000Z" itemprop="datePublished">2017-08-29</time>
+</a>
+    </div>
   
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Complexity results in nonlinear programming
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/optimization/">optimization<span class="article-category-count">4</span></a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://imageshack.com/a/img923/7456/Wcppfi.png" alt="Life goes on."></p>
-<center> <h1><br><a href="https://bitbucket.org/Xi_He/cnn_cpp_2017/src/ffe3aee01f8ae8fbc2498625558841fbf2c8e1b3/Codes/?at=master" target="_blank" rel="external">distributed_Hessian-free</a><br></h1> </center>
+        <p>We are considering a continuous variable, smooth, and nonconvex nonlinear programming as following<br>$$\min_{\mathbb{R}^n} f(x)$$</p>
+<p>The complexity of checking whether</p>
+<ol>
+<li>a given feasible solution is not a local minimum</li>
+<li>the objective function is not bounded below on the set of feasible solutions</li>
+</ol>
+<p><strong>Conclusion:</strong></p>
+<blockquote>
+<p>Checking (1) or (2) is NP-complete.</p>
+</blockquote>
+<p><strong>Subset sum problem</strong></p>
+<p>Given positive integers $d_0, d_1, \cdots, d<em>n$, is there a solution such that $\sum</em>{i=1}^nd_iy_i = d_0, y_i \in {0, 1}$.</p>
+<p>The problem itself is NP-hard, and an equivalent NLP reformulation is<br>$$\min (\sum_{i=1}^nd_iy_i = d<em>0)^2 + \sum</em>{i=1}^ny_i(1-y_i), y_i\in [0, 1]$$</p>
+<h2 id="Reference">Reference</h2><p><a href="http://www-personal.umich.edu/~murty/np.pdf" target="_blank" rel="external">Some NP-complete problems in quadratic and nonlinear programming</a></p>
+
       
     </div>
     
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2017/08/22/using_mpi4py/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Using mpi4py</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -267,7 +326,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
