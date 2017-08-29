@@ -4,18 +4,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Notes on Introductory Lectures on Convex Optimization ( I ) | Xi He</title>
+  <title>Style of python class | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A brief reading notes for the book Introductory Lectures on Convex Optimization">
+  <meta name="description" content="Is there any reason for a class declaration to inherit from object?
+
+In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
+Python 2.x story:In Python 2.x (from 2.2 onward">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Notes on Introductory Lectures on Convex Optimization ( I )">
-<meta property="og:url" content="http://xihey.com/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization-I/index.html">
+<meta property="og:title" content="Style of python class">
+<meta property="og:url" content="http://xihey.com/2017/08/02/style_of_python_class/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="A brief reading notes for the book Introductory Lectures on Convex Optimization">
-<meta property="og:updated_time" content="2017-08-29T12:12:04.000Z">
+<meta property="og:description" content="Is there any reason for a class declaration to inherit from object?
+
+In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
+Python 2.x story:In Python 2.x (from 2.2 onward">
+<meta property="og:updated_time" content="2017-08-29T14:28:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notes on Introductory Lectures on Convex Optimization ( I )">
-<meta name="twitter:description" content="A brief reading notes for the book Introductory Lectures on Convex Optimization">
+<meta name="twitter:title" content="Style of python class">
+<meta name="twitter:description" content="Is there any reason for a class declaration to inherit from object?
+
+In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
+Python 2.x story:In Python 2.x (from 2.2 onward">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -196,11 +205,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Notes-on-Introductory-Lectures-on-Convex-Optimization-I" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-style_of_python_class" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization-I/" class="article-date">
-  	<time datetime="2016-05-23T14:49:00.000Z" itemprop="datePublished">2016-05-23</time>
+      <a href="/2017/08/02/style_of_python_class/" class="article-date">
+  	<time datetime="2017-08-02T22:23:20.000Z" itemprop="datePublished">2017-08-02</time>
 </a>
     </div>
   
@@ -213,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Notes on Introductory Lectures on Convex Optimization ( I )
+      Style of python class
     </h1>
   
 
@@ -221,9 +230,13 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+	</div>
+
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/optimization/">optimization<span class="article-category-count">3</span></a>
+	<a class="article-category-link" href="/categories/programing/">programing<span class="article-category-count">1</span></a>
 	</div>
 
 
@@ -233,8 +246,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This note is based on a book <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.693.855&amp;rep=rep1&amp;type=pdf" target="_blank" rel="external">Introductory Lectures on Convex Optimization</a> of <code>Yurii Nesterov</code>.<br><!-- ![A basic Course](http://imageshack.com/a/img921/5862/sAlCYs.jpg) --></p>
-<center> <h1><strong>Chapter 1: Nonlinear Optimization</strong></h1> </center>
+        <blockquote>
+<p>Is there any reason for a class declaration to inherit from <code>object</code>?</p>
+</blockquote>
+<p>In Python 3, apart from compatibility between Python 2 and 3, <em>no</em>. In Python 2, <em>yes</em>.</p>
+<h2 id="Python_2-x_story:">Python 2.x story:</h2><p>In Python 2.x (from 2.2 onward) there’s two styles of classes depending on the presence or absence of a built-in type as a base-class:</p>
+<ul>
+<li><strong>“classic” style</strong> classes: they have no built-in type as a base class:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span>      <span class="comment"># no base class</span></span><br><span class="line"><span class="prompt">... </span>    <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>ClassicSpam.__bases__</span><br><span class="line">()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>“new” style</strong> classes: they have a built-in type as a base class meaning that, directly or indirectly, they have <code>object</code> as a base class:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span>           <span class="comment"># directly inherit from object</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>NewSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">IntSpam</span><span class="params">(int)</span>:</span>              <span class="comment"># indirectly inherit from object...</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'int'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__[<span class="number">0</span>].__bases__   <span class="comment"># ... because int inherits from object</span></span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br></pre></td></tr></table></figure>
+<p>Without a doubt, when writing a class you’ll <em>always</em> want to go for new-style classes. The perks of doing so are numerous, to list some of them:</p>
+<ul>
+<li>Support for descriptors. <code>classmethod</code>, <code>staticmethod</code>, properties.</li>
+<li>Method resolution order (MRO): in what order the base classes of a class will be searched when trying to resolve which method to call.</li>
+<li>Related to MRO, <code>super</code> calls.</li>
+</ul>
+<p>One of the downsides of new-style classes is that the class itself is more memory demanding. Unless you’re creating many class objects, though, I doubt this would be an issue and it’s a negative sinking in a sea of positives.</p>
+<h2 id="Python_3-x_story:">Python 3.x story:</h2><p>In Python 3, things are simplified. Only new-style classes exist (referred to plainly as classes) so, the only difference in adding <code>object</code> is requiring you to type in 8 more characters. This:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>is completely equivalent (apart from their name :-) to this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>and to this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spam</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>all have <code>object</code> in their <code>__bases__</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>[object <span class="keyword">in</span> cls.__bases__ <span class="keyword">for</span> cls <span class="keyword">in</span> &#123;Spam, NewSpam, ClassicSpam&#125;]</span><br><span class="line">[<span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="What_should_you_do?">What should you do?</h2><p><strong>In Python 2:</strong> always inherit from <code>object</code> explicitly. Get the perks.</p>
+<p><strong>In Python 3:</strong> only inherit from <code>object</code> if you are writing code that tries to be Python agnostic, that is, it needs to work both in Python 2 and in Python 3. Otherwise don’t, it really makes no difference.</p>
+<p>Reference:</p>
+<ul>
+<li><a href="https://stackoverflow.com/a/45062077/4808456" target="_blank" rel="external">stackoverflow</a></li>
+</ul>
+
       
     </div>
     
@@ -243,18 +289,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/07/24/Can-CG-verify-that-a-matrix/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/22/using_mpi4py/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Can CG verify that a matrix is positive definite?
+          Using mpi4py
         
       </div>
     </a>
   
   
-    <a href="/2016/05/01/practical_newton_method/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Practical Newton Method</div>
+    <a href="/2016/07/24/Can-CG-verify-that-a-matrix-is-positive-definite/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Can CG verify that a matrix is positive definite?</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

@@ -228,7 +228,7 @@
 <p>First, I will show how to use <code>mpi4py</code> and later on will show how to install and use <code>mpi4py</code> on both linux and windows.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mpi4py</span><br></pre></td></tr></table></figure>
 <p><em>to be continue…</em></p>
-<p>Reference:<br><a href="http://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="external">mpi4py</a></p>
+<h2 id="Reference:">Reference:</h2><p><a href="http://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="external">mpi4py</a></p>
 
       
     </div>
@@ -261,10 +261,10 @@
 
 
   
-    <article id="post-old_sty_class_vs_new_sty_class" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-style_of_python_class" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/02/old_sty_class_vs_new_sty_class/" class="article-date">
+      <a href="/2017/08/02/style_of_python_class/" class="article-date">
   	<time datetime="2017-08-02T22:23:20.000Z" itemprop="datePublished">2017-08-02</time>
 </a>
     </div>
@@ -278,7 +278,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/02/old_sty_class_vs_new_sty_class/">Old sty class v.s. new sty class</a>
+      <a class="article-title" href="/2017/08/02/style_of_python_class/">Style of python class</a>
     </h1>
   
 
@@ -288,9 +288,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<h3 id="Is_there_any_reason_for_a_class_declaration_to_inherit_from_object?">Is there any reason for a class declaration to inherit from <code>object</code>?</h3></blockquote>
+<p>Is there any reason for a class declaration to inherit from <code>object</code>?</p>
+</blockquote>
 <p>In Python 3, apart from compatibility between Python 2 and 3, <em>no</em>. In Python 2, <em>yes</em>.</p>
-<h3 id="Python_2-x_story:">Python 2.x story:</h3><p>In Python 2.x (from 2.2 onward) there’s two styles of classes depending on the presence or absence of a built-in type as a base-class:</p>
+<h2 id="Python_2-x_story:">Python 2.x story:</h2><p>In Python 2.x (from 2.2 onward) there’s two styles of classes depending on the presence or absence of a built-in type as a base-class:</p>
 <ul>
 <li><strong>“classic” style</strong> classes: they have no built-in type as a base class:</li>
 </ul>
@@ -306,7 +307,7 @@
 <li>Related to MRO, <code>super</code> calls.</li>
 </ul>
 <p>One of the downsides of new-style classes is that the class itself is more memory demanding. Unless you’re creating many class objects, though, I doubt this would be an issue and it’s a negative sinking in a sea of positives.</p>
-<h3 id="Python_3-x_story:">Python 3.x story:</h3><p>In Python 3, things are simplified. Only new-style classes exist (referred to plainly as classes) so, the only difference in adding <code>object</code> is requiring you to type in 8 more characters. This:</p>
+<h2 id="Python_3-x_story:">Python 3.x story:</h2><p>In Python 3, things are simplified. Only new-style classes exist (referred to plainly as classes) so, the only difference in adding <code>object</code> is requiring you to type in 8 more characters. This:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <p>is completely equivalent (apart from their name :-) to this:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
@@ -352,10 +353,10 @@
 
 
   
-    <article id="post-Can-CG-verify-that-a-matrix" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Can-CG-verify-that-a-matrix-is-positive-definite" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/24/Can-CG-verify-that-a-matrix/" class="article-date">
+      <a href="/2016/07/24/Can-CG-verify-that-a-matrix-is-positive-definite/" class="article-date">
   	<time datetime="2016-07-24T14:28:22.000Z" itemprop="datePublished">2016-07-24</time>
 </a>
     </div>
@@ -369,7 +370,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/24/Can-CG-verify-that-a-matrix/">Can CG verify that a matrix is positive definite?</a>
+      <a class="article-title" href="/2016/07/24/Can-CG-verify-that-a-matrix-is-positive-definite/">Can CG verify that a matrix is positive definite?</a>
     </h1>
   
 
@@ -408,7 +409,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/07/24/Can-CG-verify-that-a-matrix/#more">more >></a>
+          <a  href="/2016/07/24/Can-CG-verify-that-a-matrix-is-positive-definite/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -425,10 +426,10 @@
 
 
   
-    <article id="post-Notes-on-Introductory-Lectures-on-Convex-Optimization-I" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Notes-on-Introductory-Lectures-on-Convex-Optimization" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization-I/" class="article-date">
+      <a href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization/" class="article-date">
   	<time datetime="2016-05-23T14:49:00.000Z" itemprop="datePublished">2016-05-23</time>
 </a>
     </div>
@@ -442,7 +443,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization-I/">Notes on Introductory Lectures on Convex Optimization ( I )</a>
+      <a class="article-title" href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization/">Notes on Introductory Lectures on Convex Optimization</a>
     </h1>
   
 
@@ -453,6 +454,9 @@
       
         <p>This note is based on a book <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.693.855&amp;rep=rep1&amp;type=pdf" target="_blank" rel="external">Introductory Lectures on Convex Optimization</a> of <code>Yurii Nesterov</code>.<br><!-- ![A basic Course](http://imageshack.com/a/img921/5862/sAlCYs.jpg) --></p>
 <center> <h1><strong>Chapter 1: Nonlinear Optimization</strong></h1> </center>
+
+<p><em>to be continue…</em></p>
+
       
     </div>
     
@@ -577,11 +581,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Q: fatal: remote origin already exists<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br><span class="line">$ git remote add origin git@github.com:username/repositoryname.git</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Latex">Latex</h2><h2 id="Git">Git</h2><p><strong>NOTE: First commit your current changes, or you will lose them.</strong></p>
+<ol>
+<li>fatal: remote origin already exists</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br><span class="line">$ git remote add origin git@github.com:username/repositoryname.git</span><br></pre></td></tr></table></figure>
 <p>or reset the remote git repository</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">set</span>-url origin https://&lt;gitpath&gt;/.git</span><br></pre></td></tr></table></figure>
-<p>Q: <code>.gitignore</code> not working<br>NOTE: First commit your current changes, or you will lose them.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm  -r --cached .</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"fixed untracked files"</span></span><br></pre></td></tr></table></figure></p>
-
+<ol>
+<li>.gitignore not working</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm  -r --cached .</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"fixed untracked files"</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -698,7 +708,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>screen</strong>: <code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
+        <h2 id="screen">screen</h2><p><code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
 <ol>
 <li><p>Create a session. You can easily exit current session by <code>Ctrl -a d</code> or terminate a session by <code>Ctrl -r d</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen</span><br></pre></td></tr></table></figure>
@@ -828,15 +838,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Useful_link">Useful link</h2><ul>
-<li><a href="http://hexo.io/docs/">Documentation</a></li>
-<li><a href="http://hexo.io/docs/troubleshooting.html">Q&amp;A</a></li>
-</ul>
-<h2 id="Create_a_new_post">Create a new post</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;titlename&gt; (ex. hexo new <span class="string">"My New Post"</span>)</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html">Writing</a></p>
+        <h2 id="Create_a_new_post">Create a new post</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [layout] &lt;titlename&gt; (ex. hexo new <span class="string">"My New Post"</span>)</span><br></pre></td></tr></table></figure>
+<p>More info at <a href="http://hexo.io/docs/writing.html">Writing</a></p>
 <h2 id="Generate_static_files_and_test_locally">Generate static files and test locally</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s -g</span><br></pre></td></tr></table></figure>
 <h2 id="Generate_static_files_and_deploy_to_remote_sites">Generate static files and deploy to remote sites</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d -g</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html">Server</a>, <a href="http://hexo.io/docs/generating.html">Generating</a>, <a href="http://hexo.io/docs/deployment.html">Deployment</a></p>
+<p>More info at <a href="http://hexo.io/docs/server.html">Server</a>, <a href="http://hexo.io/docs/generating.html">Generating</a>, <a href="http://hexo.io/docs/deployment.html">Deployment</a></p>
       
     </div>
     

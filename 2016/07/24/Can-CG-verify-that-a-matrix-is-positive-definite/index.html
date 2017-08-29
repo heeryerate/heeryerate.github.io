@@ -4,24 +4,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Old sty class v.s. new sty class | Xi He</title>
+  <title>Can CG verify that a matrix is positive definite? | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Is there any reason for a class declaration to inherit from object?
-In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
-Python 2.x story:In Python 2.x (from 2.2 onward)">
+  <meta name="description" content="Investigate the connection between CG and positive definiteness of a matrix">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Old sty class v.s. new sty class">
-<meta property="og:url" content="http://xihey.com/2017/08/02/old_sty_class_vs_new_sty_class/index.html">
+<meta property="og:title" content="Can CG verify that a matrix is positive definite?">
+<meta property="og:url" content="http://xihey.com/2016/07/24/Can-CG-verify-that-a-matrix-is-positive-definite/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="Is there any reason for a class declaration to inherit from object?
-In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
-Python 2.x story:In Python 2.x (from 2.2 onward)">
-<meta property="og:updated_time" content="2017-08-29T12:11:09.000Z">
+<meta property="og:description" content="Investigate the connection between CG and positive definiteness of a matrix">
+<meta property="og:updated_time" content="2017-08-29T14:27:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Old sty class v.s. new sty class">
-<meta name="twitter:description" content="Is there any reason for a class declaration to inherit from object?
-In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
-Python 2.x story:In Python 2.x (from 2.2 onward)">
+<meta name="twitter:title" content="Can CG verify that a matrix is positive definite?">
+<meta name="twitter:description" content="Investigate the connection between CG and positive definiteness of a matrix">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -202,11 +196,11 @@ Python 2.x story:In Python 2.x (from 2.2 onward)">
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-old_sty_class_vs_new_sty_class" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Can-CG-verify-that-a-matrix-is-positive-definite" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/08/02/old_sty_class_vs_new_sty_class/" class="article-date">
-  	<time datetime="2017-08-02T22:23:20.000Z" itemprop="datePublished">2017-08-02</time>
+      <a href="/2016/07/24/Can-CG-verify-that-a-matrix-is-positive-definite/" class="article-date">
+  	<time datetime="2016-07-24T14:28:22.000Z" itemprop="datePublished">2016-07-24</time>
 </a>
     </div>
   
@@ -219,7 +213,7 @@ Python 2.x story:In Python 2.x (from 2.2 onward)">
         
   
     <h1 class="article-title" itemprop="name">
-      Old sty class v.s. new sty class
+      Can CG verify that a matrix is positive definite?
     </h1>
   
 
@@ -227,13 +221,9 @@ Python 2.x story:In Python 2.x (from 2.2 onward)">
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/programing/">programing<span class="article-category-count">1</span></a>
+	<a class="article-category-link" href="/categories/optimization/">optimization<span class="article-category-count">3</span></a>
 	</div>
 
 
@@ -243,39 +233,24 @@ Python 2.x story:In Python 2.x (from 2.2 onward)">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<h3 id="Is_there_any_reason_for_a_class_declaration_to_inherit_from_object?">Is there any reason for a class declaration to inherit from <code>object</code>?</h3></blockquote>
-<p>In Python 3, apart from compatibility between Python 2 and 3, <em>no</em>. In Python 2, <em>yes</em>.</p>
-<h3 id="Python_2-x_story:">Python 2.x story:</h3><p>In Python 2.x (from 2.2 onward) there’s two styles of classes depending on the presence or absence of a built-in type as a base-class:</p>
+        <p>To find a answer, I will use <code>CG</code>(<a href="https://en.wikipedia.org/wiki/Conjugate_gradient_method" target="_blank" rel="external">Conjugate gradient method</a>) and its variants (<code>BiCG</code>/<code>FLR</code>) to solve some linear systems $Hx = b$ with respect to different $H$ and $b$.</p>
+<p>The following examples are designed:</p>
+<blockquote>
 <ul>
-<li><strong>“classic” style</strong> classes: they have no built-in type as a base class:</li>
+<li>Let $H=diag(1,-1)$, $b = (1, 2)$, and $x_0=(0,0)$, CG converges in two steps.</li>
+<li>Let $H=diag(1,-1)$, $b = (1, 1)$, and $x_0=(0,0)$, CG breaks down in the first step, since $p^TAp = 0$.</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span>      <span class="comment"># no base class</span></span><br><span class="line"><span class="prompt">... </span>    <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>ClassicSpam.__bases__</span><br><span class="line">()</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>Conclusion:</strong> The convergece of CG method cannot be used to identify if $H$ is positive definite.</p>
+<blockquote>
 <ul>
-<li><strong>“new” style</strong> classes: they have a built-in type as a base class meaning that, directly or indirectly, they have <code>object</code> as a base class:</li>
+<li>Let $H=diag(1,-1)$, $b = (1, 2)$, and $x_0=(0,0)$, then $p^TAp &lt;0$ in second step.</li>
+<li>Let $H=diag(1,-1)$, $b = (1, 0)$, and $x_0=(0,0)$, CG converges in the first step, and $p^TAp = 1 &gt;0$ in the first step, therefore no $p^TAp&lt;0$ is encountered.</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span>           <span class="comment"># directly inherit from object</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>NewSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">IntSpam</span><span class="params">(int)</span>:</span>              <span class="comment"># indirectly inherit from object...</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'int'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__[<span class="number">0</span>].__bases__   <span class="comment"># ... because int inherits from object</span></span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br></pre></td></tr></table></figure>
-<p>Without a doubt, when writing a class you’ll <em>always</em> want to go for new-style classes. The perks of doing so are numerous, to list some of them:</p>
-<ul>
-<li>Support for descriptors. <code>classmethod</code>, <code>staticmethod</code>, properties.</li>
-<li>Method resolution order (MRO): in what order the base classes of a class will be searched when trying to resolve which method to call.</li>
-<li>Related to MRO, <code>super</code> calls.</li>
-</ul>
-<p>One of the downsides of new-style classes is that the class itself is more memory demanding. Unless you’re creating many class objects, though, I doubt this would be an issue and it’s a negative sinking in a sea of positives.</p>
-<h3 id="Python_3-x_story:">Python 3.x story:</h3><p>In Python 3, things are simplified. Only new-style classes exist (referred to plainly as classes) so, the only difference in adding <code>object</code> is requiring you to type in 8 more characters. This:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>is completely equivalent (apart from their name :-) to this:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>and to this:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spam</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>all have <code>object</code> in their <code>__bases__</code>.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>[object <span class="keyword">in</span> cls.__bases__ <span class="keyword">for</span> cls <span class="keyword">in</span> &#123;Spam, NewSpam, ClassicSpam&#125;]</span><br><span class="line">[<span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="What_should_you_do?">What should you do?</h2><p><strong>In Python 2:</strong> always inherit from <code>object</code> explicitly. Get the perks.</p>
-<p><strong>In Python 3:</strong> only inherit from <code>object</code> if you are writing code that tries to be Python agnostic, that is, it needs to work both in Python 2 and in Python 3. Otherwise don’t, it really makes no difference.</p>
-<p>Reference:</p>
-<ul>
-<li><a href="https://stackoverflow.com/a/45062077/4808456" target="_blank" rel="external">stackoverflow</a></li>
-</ul>
+</blockquote>
+<p><strong>Conclusion:</strong> The value $p^TAp$ is not sufficient to show if $H$ is positive definite.</p>
+<a id="more"></a>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[x]</span> = <span class="title">conjgrad</span><span class="params">(A,b,x)</span></span></span><br><span class="line">    r = b - A*x;</span><br><span class="line">    p = r;</span><br><span class="line">    rsold = r<span class="operator">'</span>*r;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(b)</span><br><span class="line">        Ap = A*p;</span><br><span class="line">        alpha = rsold/(p<span class="operator">'</span>*Ap);</span><br><span class="line">        x = x + alpha*p;</span><br><span class="line">        r = r - alpha*Ap;</span><br><span class="line">        rsnew = r<span class="operator">'</span>*r;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">sqrt</span>(rsnew) &lt; <span class="number">1e-10</span></span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        p = r + (rsnew/rsold)*p;</span><br><span class="line">        rsold = rsnew;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -285,18 +260,18 @@ Python 2.x story:In Python 2.x (from 2.2 onward)">
     
 <nav id="article-nav">
   
-    <a href="/2017/08/22/using_mpi4py/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/08/02/style_of_python_class/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Using mpi4py
+          Style of python class
         
       </div>
     </a>
   
   
-    <a href="/2016/07/24/Can-CG-verify-that-a-matrix/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Can CG verify that a matrix is positive definite?</div>
+    <a href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Notes on Introductory Lectures on Convex Optimization</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

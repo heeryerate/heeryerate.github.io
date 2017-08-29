@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://xihey.com/2016/04/25/handy_commands/index.html">
 <meta property="og:site_name" content="Xi He">
 <meta property="og:description" content="A collection of handy commands">
-<meta property="og:updated_time" content="2017-08-29T12:06:28.000Z">
+<meta property="og:updated_time" content="2017-08-29T14:21:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Handy commands">
 <meta name="twitter:description" content="A collection of handy commands">
@@ -237,7 +237,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>screen</strong>: <code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
+        <h2 id="screen">screen</h2><p><code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
 <ol>
 <li><p>Create a session. You can easily exit current session by <code>Ctrl -a d</code> or terminate a session by <code>Ctrl -r d</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen</span><br></pre></td></tr></table></figure>
@@ -250,7 +250,7 @@
 </li>
 </ol>
 <a id="more"></a>
-<p><strong>tee</strong>: <code>tee</code> command is used to store and view (both at the same time) the output of any other command.</p>
+<h2 id="tee">tee</h2><p><code>tee</code> command is used to store and view (both at the same time) the output of any other command.</p>
 <ol>
 <li><p>Write output to stdout, and also to a file (or multiple files)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls | tee file1 file2 file3</span><br></pre></td></tr></table></figure>
@@ -259,8 +259,8 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls | tee <span class="operator">-a</span> file</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><strong>tldr</strong>: <code>tldr</code> means <em>too long, don’t read</em> :). It is a collection of simplified and community-drive man pages. see <a href="https://github.com/tldr-pages/tldr" target="_blank" rel="external">tldr</a>. A <a href="http://www.ostera.io/tldr.jsx/#/?_k=czxd48" target="_blank" rel="external">web client</a> is available as well.</p>
-<p><strong>awk</strong>: <code>awk</code> is <em>a text pattern scanning and processing language</em>.</p>
+<h2 id="tldr">tldr</h2><p><code>tldr</code> means <em>too long, don’t read</em> :). It is a collection of simplified and community-drive man pages. see <a href="https://github.com/tldr-pages/tldr" target="_blank" rel="external">tldr</a>. A <a href="http://www.ostera.io/tldr.jsx/#/?_k=czxd48" target="_blank" rel="external">web client</a> is available as well.</p>
+<h2 id="awk">awk</h2><p><code>awk</code> is <em>a text pattern scanning and processing language</em>.</p>
 <ol>
 <li><p>Print column of field of a file ($0$ stands for the whole line and $n$ is the string at <em>n</em>th column.)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
@@ -272,7 +272,22 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; /a/  print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Replace unwanted character (e.g. replace chacter <em>a</em> to <em>b</em> in forth column. <em>b</em> could be whitespace, therefore delete)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; sub(/a/,"b",$4)  print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ awk <span class="string">'&#123; sub(/a/,"b",$4)  print $4 "\t" $3 &#125;'</span> file</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Prepend “prefix: “ at the beginning of each line in the file</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'&#123; print "prefix: " $0 &#125;'</span> file &gt; cmd1.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Print content after the 4th line (begin from 5th line)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">' NR &gt; 4 &#123; print &#125; '</span> file &gt; cmd2.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Modify content after 4th line</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">' FNR &gt;= 4 &#123; print "tesar" ; next&#125; &#123;print&#125;'</span> file &gt; cmd3.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Replace 4th line</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cp file cmd5.txt</span><br><span class="line">temp=$(mktemp)</span><br><span class="line">awk <span class="string">' FNR == 4 &#123; print " This is new line 4. for replacement " ; next &#125; &#123; print &#125; '</span>  cmd5.txt &gt; <span class="string">"<span class="variable">$temp</span>"</span> &amp;&amp; mv <span class="string">"<span class="variable">$temp</span>"</span> cmd5.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Replace 4th line and introduce variables into <code>awk</code> print command</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp file cmd6.txt</span><br><span class="line">temp=$(mktemp)</span><br><span class="line">now=$(date)</span><br><span class="line">awk -v q=<span class="variable">$now</span> <span class="string">' FNR == 4 &#123; print " This is new line 4. at date" q ; next &#125; &#123; print &#125; '</span>  cmd6.txt &gt; <span class="string">"<span class="variable">$temp</span>"</span> &amp;&amp; mv <span class="string">"<span class="variable">$temp</span>"</span> cmd6.txt</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       

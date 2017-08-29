@@ -4,18 +4,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Can CG verify that a matrix is positive definite? | Xi He</title>
+  <title>Notes on Introductory Lectures on Convex Optimization | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Investigate the connection between CG and positive definiteness of a matrix">
+  <meta name="description" content="A brief reading notes for the book Introductory Lectures on Convex Optimization">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Can CG verify that a matrix is positive definite?">
-<meta property="og:url" content="http://xihey.com/2016/07/24/Can-CG-verify-that-a-matrix/index.html">
+<meta property="og:title" content="Notes on Introductory Lectures on Convex Optimization">
+<meta property="og:url" content="http://xihey.com/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="Investigate the connection between CG and positive definiteness of a matrix">
-<meta property="og:updated_time" content="2017-08-29T12:11:43.000Z">
+<meta property="og:description" content="A brief reading notes for the book Introductory Lectures on Convex Optimization">
+<meta property="og:updated_time" content="2017-08-29T14:27:25.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Can CG verify that a matrix is positive definite?">
-<meta name="twitter:description" content="Investigate the connection between CG and positive definiteness of a matrix">
+<meta name="twitter:title" content="Notes on Introductory Lectures on Convex Optimization">
+<meta name="twitter:description" content="A brief reading notes for the book Introductory Lectures on Convex Optimization">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -196,11 +196,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Can-CG-verify-that-a-matrix" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Notes-on-Introductory-Lectures-on-Convex-Optimization" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/24/Can-CG-verify-that-a-matrix/" class="article-date">
-  	<time datetime="2016-07-24T14:28:22.000Z" itemprop="datePublished">2016-07-24</time>
+      <a href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization/" class="article-date">
+  	<time datetime="2016-05-23T14:49:00.000Z" itemprop="datePublished">2016-05-23</time>
 </a>
     </div>
   
@@ -213,7 +213,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Can CG verify that a matrix is positive definite?
+      Notes on Introductory Lectures on Convex Optimization
     </h1>
   
 
@@ -233,24 +233,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>To find a answer, I will use <code>CG</code>(<a href="https://en.wikipedia.org/wiki/Conjugate_gradient_method" target="_blank" rel="external">Conjugate gradient method</a>) and its variants (<code>BiCG</code>/<code>FLR</code>) to solve some linear systems $Hx = b$ with respect to different $H$ and $b$.</p>
-<p>The following examples are designed:</p>
-<blockquote>
-<ul>
-<li>Let $H=diag(1,-1)$, $b = (1, 2)$, and $x_0=(0,0)$, CG converges in two steps.</li>
-<li>Let $H=diag(1,-1)$, $b = (1, 1)$, and $x_0=(0,0)$, CG breaks down in the first step, since $p^TAp = 0$.</li>
-</ul>
-</blockquote>
-<p><strong>Conclusion:</strong> The convergece of CG method cannot be used to identify if $H$ is positive definite.</p>
-<blockquote>
-<ul>
-<li>Let $H=diag(1,-1)$, $b = (1, 2)$, and $x_0=(0,0)$, then $p^TAp &lt;0$ in second step.</li>
-<li>Let $H=diag(1,-1)$, $b = (1, 0)$, and $x_0=(0,0)$, CG converges in the first step, and $p^TAp = 1 &gt;0$ in the first step, therefore no $p^TAp&lt;0$ is encountered.</li>
-</ul>
-</blockquote>
-<p><strong>Conclusion:</strong> The value $p^TAp$ is not sufficient to show if $H$ is positive definite.</p>
-<a id="more"></a>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">[x]</span> = <span class="title">conjgrad</span><span class="params">(A,b,x)</span></span></span><br><span class="line">    r = b - A*x;</span><br><span class="line">    p = r;</span><br><span class="line">    rsold = r<span class="operator">'</span>*r;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span>:<span class="built_in">length</span>(b)</span><br><span class="line">        Ap = A*p;</span><br><span class="line">        alpha = rsold/(p<span class="operator">'</span>*Ap);</span><br><span class="line">        x = x + alpha*p;</span><br><span class="line">        r = r - alpha*Ap;</span><br><span class="line">        rsnew = r<span class="operator">'</span>*r;</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">sqrt</span>(rsnew) &lt; <span class="number">1e-10</span></span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        p = r + (rsnew/rsold)*p;</span><br><span class="line">        rsold = rsnew;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+        <p>This note is based on a book <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.693.855&amp;rep=rep1&amp;type=pdf" target="_blank" rel="external">Introductory Lectures on Convex Optimization</a> of <code>Yurii Nesterov</code>.<br><!-- ![A basic Course](http://imageshack.com/a/img921/5862/sAlCYs.jpg) --></p>
+<center> <h1><strong>Chapter 1: Nonlinear Optimization</strong></h1> </center>
+
+<p><em>to be continue…</em></p>
 
       
     </div>
@@ -260,18 +246,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/08/02/old_sty_class_vs_new_sty_class/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/24/Can-CG-verify-that-a-matrix-is-positive-definite/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Old sty class v.s. new sty class
+          Can CG verify that a matrix is positive definite?
         
       </div>
     </a>
   
   
-    <a href="/2016/05/23/Notes-on-Introductory-Lectures-on-Convex-Optimization-I/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Notes on Introductory Lectures on Convex Optimization ( I )</div>
+    <a href="/2016/05/01/practical_newton_method/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Practical Newton Method</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
