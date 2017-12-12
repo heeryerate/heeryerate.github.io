@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://xihey.com/2017/12/12/Installing-CUTEst-on-MacOSX-with-Matlab-Python/index.html">
 <meta property="og:site_name" content="Xi He">
 <meta property="og:description" content="how to installing CUTEst on MacOSX with Matlab">
-<meta property="og:updated_time" content="2017-12-12T19:02:11.000Z">
+<meta property="og:updated_time" content="2017-12-12T19:08:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Installing CUTEst on MacOSX with Matlab ">
 <meta name="twitter:description" content="how to installing CUTEst on MacOSX with Matlab">
@@ -247,6 +247,9 @@
 <p>you would also need specify the executable command of sifdecode and cutest by adding the follows</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;SIFDECODE&#125;</span>/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;CUTEST&#125;</span>/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="string">"<span class="variable">$&#123;SIFDECODE&#125;</span>/man:<span class="variable">$&#123;MANPATH&#125;</span>"</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="string">"<span class="variable">$&#123;CUTEST&#125;</span>/man:<span class="variable">$&#123;MANPATH&#125;</span>"</span></span><br></pre></td></tr></table></figure>
 </li>
+</ol>
+<a id="more"></a>
+<ol>
 <li><p>You need then compile cutest problems using C or Fortran and interactive with matlab mex. To do this, one could follow <a href="https://github.com/optimizers/cutest-mirror/blob/master/doc/README.osx" target="_blank" rel="external">cutest-mirror, README.osx</a>. Which suggest you have Xcode or at least xcode command-line installed</p>
 <p> The matlab path should be provide as well</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> MYARCH=<span class="string">"mac64.osx.gfo"</span></span><br><span class="line"><span class="built_in">export</span> MYMATLABARCH=<span class="string">"mac64.osx.gfo"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> MYMATLAB=<span class="string">"/Applications/MATLAB_R2017b.app"</span></span><br><span class="line"><span class="built_in">export</span> MATLABPATH=<span class="variable">$CUTEST</span>/src/matlab:<span class="variable">$MATLABPATH</span></span><br></pre></td></tr></table></figure>
