@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://xihey.com/2017/12/12/Installing-CUTEst-on-MacOSX-with-Matlab-Python/index.html">
 <meta property="og:site_name" content="Xi He">
 <meta property="og:description" content="how to installing CUTEst on MacOSX with Matlab">
-<meta property="og:updated_time" content="2017-12-12T19:08:13.000Z">
+<meta property="og:updated_time" content="2017-12-12T19:10:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Installing CUTEst on MacOSX with Matlab ">
 <meta name="twitter:description" content="how to installing CUTEst on MacOSX with Matlab">
@@ -257,19 +257,19 @@
 <li><p>You need also copy <a href="https://github.com/optimizers/cutest-mirror/tree/master/doc/matlab-osx" target="_blank" rel="external">clang_maci64.xml</a> to your matlab version.</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp clang_maci64.xml /Applications/MATLAB_R2017b.app/bin/maci64/mexopts/</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Then you need to make sure .mex files can be compiled by C for Fortran for matlab usage.</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/Applications/MATLAB_R2017b.app/bin/mex -setup C</span><br><span class="line"><span class="comment"># or please try</span></span><br><span class="line"><span class="comment"># /Applications/MATLAB_R2017b.app/bin/mex C++</span></span><br><span class="line"><span class="comment"># /Applications/MATLAB_R2017b.app/bin/mex FORTRAN</span></span><br></pre></td></tr></table></figure>
+<li><p>Then you need to make sure <code>.mex</code> files can be compiled by C for Fortran for matlab usage.</p>
+<p> First, check if the compiler path is wrong by</p>
+ <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Applications/</span>MATLAB_R2017b.app<span class="regexp">/bin/m</span>ex -setup -v</span><br></pre></td></tr></table></figure>
 <p> If everything goes right, then you are lucky and you can move forwards. Otherwise, if you have error like</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No supported compiler or SDK was found. For options, visit https://www.mathworks.com/support/compilers.</span><br></pre></td></tr></table></figure>
-<p> Check if the compiler path is wrong by</p>
- <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/Applications/</span>MATLAB_R2017b.app<span class="regexp">/bin/m</span>ex -setup -v</span><br></pre></td></tr></table></figure>
 <p> And then you will need to do the following. At first, try to locate your SDK in Xcode, in may case,  it is</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs</span><br></pre></td></tr></table></figure>
 <p> And the SDK version is <strong>MacOSX10.13.sdk</strong> in my case. Then you need to modify your <strong>clang_maci64.xml</strong> file to make sure the Xcode C compiler can be founded, i.e. you should add these two lines in both <em>ISYSROOT</em>  and  <em>SDKVER</em> blocks</p>
  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">dirExists</span> <span class="attribute">name</span>=<span class="value">"$$/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">cmdReturns</span> <span class="attribute">name</span>=<span class="value">"find $$ -name MacOSX10.13.sdk"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-<p> After that, it should be good to setup the Xcode C compiler for matlab by</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/Applications/MATLAB_R2017b.app/bin/mex -setup C</span><br><span class="line"><span class="comment"># or please try</span></span><br><span class="line"><span class="comment"># /Applications/MATLAB_R2017b.app/bin/mex C++</span></span><br><span class="line"><span class="comment"># /Applications/MATLAB_R2017b.app/bin/mex FORTRAN</span></span><br></pre></td></tr></table></figure>
-<p> Note that each time you upgrade matlab or Xcode, you may need to reconfigure the SDK path.</p>
+</li>
+<li><p>After that, it should be good to setup the Xcode C compiler for matlab by</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/Applications/MATLAB_R2017b.app/bin/mex -setup C</span><br><span class="line"><span class="comment"># or please try</span></span><br><span class="line"><span class="comment"># /Applications/MATLAB_R2017b.app/bin/mex C++</span></span><br><span class="line"><span class="comment"># /Applications/MATLAB_R2017b.app/bin/mex FORTRAN</span></span><br></pre></td></tr></table></figure>
+<p>Note that each time you upgrade matlab or Xcode, you may need to reconfigure the SDK path.</p>
 </li>
 <li><p>Next please refer to <a href="https://github.com/optimizers/cutest-mirror/blob/master/src/matlab/README.matlab" target="_blank" rel="external">cutest-mirror/src/matlab/README.matlab</a>. To run the test problem including problem decoding and function evaluation. For given problem name (the problem name can be found in mastsif or cutest)</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cutest2matlab_osx PROBLEM_NAME</span><br></pre></td></tr></table></figure>
