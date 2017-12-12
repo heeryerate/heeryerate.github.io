@@ -443,28 +443,6 @@
 <li><strong>“new” style</strong> classes: they have a built-in type as a base class meaning that, directly or indirectly, they have <code>object</code> as a base class:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span>           <span class="comment"># directly inherit from object</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>NewSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">IntSpam</span><span class="params">(int)</span>:</span>              <span class="comment"># indirectly inherit from object...</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'int'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__[<span class="number">0</span>].__bases__   <span class="comment"># ... because int inherits from object</span></span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br></pre></td></tr></table></figure>
-<p>Without a doubt, when writing a class you’ll <em>always</em> want to go for new-style classes. The perks of doing so are numerous, to list some of them:</p>
-<ul>
-<li>Support for descriptors. <code>classmethod</code>, <code>staticmethod</code>, properties.</li>
-<li>Method resolution order (MRO): in what order the base classes of a class will be searched when trying to resolve which method to call.</li>
-<li>Related to MRO, <code>super</code> calls.</li>
-</ul>
-<p>One of the downsides of new-style classes is that the class itself is more memory demanding. Unless you’re creating many class objects, though, I doubt this would be an issue and it’s a negative sinking in a sea of positives.</p>
-<h2 id="Python_3-x_story:">Python 3.x story:</h2><p>In Python 3, things are simplified. Only new-style classes exist (referred to plainly as classes) so, the only difference in adding <code>object</code> is requiring you to type in 8 more characters. This:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassicSpam</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>is completely equivalent (apart from their name :-) to this:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span></span><br><span class="line">     <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>and to this:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Spam</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>all have <code>object</code> in their <code>__bases__</code>.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span>[object <span class="keyword">in</span> cls.__bases__ <span class="keyword">for</span> cls <span class="keyword">in</span> &#123;Spam, NewSpam, ClassicSpam&#125;]</span><br><span class="line">[<span class="keyword">True</span>, <span class="keyword">True</span>, <span class="keyword">True</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="What_should_you_do?">What should you do?</h2><p><strong>In Python 2:</strong> always inherit from <code>object</code> explicitly. Get the perks.</p>
-<p><strong>In Python 3:</strong> only inherit from <code>object</code> if you are writing code that tries to be Python agnostic, that is, it needs to work both in Python 2 and in Python 3. Otherwise don’t, it really makes no difference.</p>
-<p>Reference:</p>
-<ul>
-<li><a href="https://stackoverflow.com/a/45062077/4808456" target="_blank" rel="external">stackoverflow</a></li>
-</ul>
-
       
     </div>
     
@@ -481,6 +459,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/08/02/style_of_python_class/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

@@ -18,7 +18,7 @@ Python 2.x story:In Python 2.x (from 2.2 onward">
 
 In Python 3, apart from compatibility between Python 2 and 3, no. In Python 2, yes.
 Python 2.x story:In Python 2.x (from 2.2 onward">
-<meta property="og:updated_time" content="2017-08-29T14:28:33.000Z">
+<meta property="og:updated_time" content="2017-12-12T19:10:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Style of python class">
 <meta name="twitter:description" content="Is there any reason for a class declaration to inherit from object?
@@ -259,6 +259,7 @@ Python 2.x story:In Python 2.x (from 2.2 onward">
 <li><strong>“new” style</strong> classes: they have a built-in type as a base class meaning that, directly or indirectly, they have <code>object</code> as a base class:</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">NewSpam</span><span class="params">(object)</span>:</span>           <span class="comment"># directly inherit from object</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>NewSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">IntSpam</span><span class="params">(int)</span>:</span>              <span class="comment"># indirectly inherit from object...</span></span><br><span class="line"><span class="prompt">... </span>   <span class="keyword">pass</span></span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__</span><br><span class="line">(&lt;type <span class="string">'int'</span>&gt;,)</span><br><span class="line"><span class="prompt">&gt;&gt;&gt; </span>IntSpam.__bases__[<span class="number">0</span>].__bases__   <span class="comment"># ... because int inherits from object</span></span><br><span class="line">(&lt;type <span class="string">'object'</span>&gt;,)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>Without a doubt, when writing a class you’ll <em>always</em> want to go for new-style classes. The perks of doing so are numerous, to list some of them:</p>
 <ul>
 <li>Support for descriptors. <code>classmethod</code>, <code>staticmethod</code>, properties.</li>
