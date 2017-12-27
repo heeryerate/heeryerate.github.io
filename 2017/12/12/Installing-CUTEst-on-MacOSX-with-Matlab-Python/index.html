@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://xihey.com/2017/12/12/Installing-CUTEst-on-MacOSX-with-Matlab-Python/index.html">
 <meta property="og:site_name" content="Xi He">
 <meta property="og:description" content="how to installing CUTEst on MacOSX with Matlab">
-<meta property="og:updated_time" content="2017-12-12T20:04:34.000Z">
+<meta property="og:updated_time" content="2017-12-27T16:42:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Installing CUTEst on MacOSX with Matlab ">
 <meta name="twitter:description" content="how to installing CUTEst on MacOSX with Matlab">
@@ -283,7 +283,7 @@
 </li>
 <li><p>Open matlab in the same folder of those generated files, you could then do</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; cutest_terminate</span><br><span class="line">&gt;&gt; prob = cutest_setup()</span><br><span class="line">&gt;&gt; [f, g] = cutest_obj(prob.x)</span><br></pre></td></tr></table></figure>
-<p> A collection of usable functions for the problems can be found at <a href="https://pdfs.semanticscholar.org/6ebd/6044c1dc63770ac480d5bf26d7a4f97a3cdb.pdf" target="_blank" rel="external">CUSTst paper</a>. as well as <code>$CUTEST/libexec/src</code>. To list a few</p>
+<p> A collection of usable functions for the problems can be found at <a href="https://pdfs.semanticscholar.org/6ebd/6044c1dc63770ac480d5bf26d7a4f97a3cdb.pdf" target="_blank" rel="external">CUSTst paper</a>. as well as <code>$CUTEST/src/matlab</code>. To list a few</p>
  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">README.matlab        cutest_ihess.m       cutest_slagjac.m</span><br><span class="line">ctools.F             cutest_isphess.m     cutest_sobj.m</span><br><span class="line">cutest.m             cutest_jprod.m       cutest_sphess.m</span><br><span class="line">cutest_connames.m    cutest_jtprod.m      cutest_terminate.m</span><br><span class="line">cutest_cons.m        cutest_lag.m         cutest_varnames.m</span><br><span class="line">cutest_dims.m        cutest_lagjac.m      gtools.F</span><br><span class="line">cutest_grad.m        cutest_obj.m         makemaster</span><br><span class="line">cutest_gradhess.m    cutest_objcons.m     mcutest.c</span><br><span class="line">cutest_gradsphess.m  cutest_scons.m       <span class="built_in">test</span>_cutest.m</span><br><span class="line">cutest_hess.m        cutest_setup.m       utools.F</span><br><span class="line">cutest_hprod.m       cutest_sgrad.m</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
