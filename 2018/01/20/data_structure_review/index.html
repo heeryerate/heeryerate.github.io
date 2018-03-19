@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xihey.com">
-  <title>Installing CUTEst on MacOSX with Matlab and Python Interface | Xi He</title>
+  <title>Data Structure Quick Review | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="how to installing CUTEst on MacOSX with Matlab and Python Interface">
-<meta name="keywords" content="matlab,python">
+  <meta name="description" content="Data structure basics Array: optimal for indexing; bad at searching, inserting, and deleting. Optimized search: O(log n) Linked List: optimal for inserting and deletion; bad at indexing and searching">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Installing CUTEst on MacOSX with Matlab and Python Interface">
-<meta property="og:url" content="http://xihey.com/2017/12/12/Installing-CUTEst-on-MacOSX-with-Matlab-Python/index.html">
+<meta property="og:title" content="Data Structure Quick Review">
+<meta property="og:url" content="http://xihey.com/2018/01/20/data_structure_review/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="how to installing CUTEst on MacOSX with Matlab and Python Interface">
+<meta property="og:description" content="Data structure basics Array: optimal for indexing; bad at searching, inserting, and deleting. Optimized search: O(log n) Linked List: optimal for inserting and deletion; bad at indexing and searching">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-12-30T21:42:06.000Z">
+<meta property="og:updated_time" content="2018-01-22T13:39:15.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Installing CUTEst on MacOSX with Matlab and Python Interface">
-<meta name="twitter:description" content="how to installing CUTEst on MacOSX with Matlab and Python Interface">
+<meta name="twitter:title" content="Data Structure Quick Review">
+<meta name="twitter:description" content="Data structure basics Array: optimal for indexing; bad at searching, inserting, and deleting. Optimized search: O(log n) Linked List: optimal for inserting and deletion; bad at indexing and searching">
   
     <link rel="alternative" href="/atom.xml" title="Xi He" type="application/atom+xml">
   
@@ -175,80 +174,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Installing-CUTEst-on-MacOSX-with-Matlab-Python" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-data_structure_review" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Installing CUTEst on MacOSX with Matlab and Python Interface
+      Data Structure Quick Review
     </h1>
   
 
         
-        <a href="/2017/12/12/Installing-CUTEst-on-MacOSX-with-Matlab-Python/" class="archive-article-date">
-  	<time datetime="2017-12-12T16:37:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
+        <a href="/2018/01/20/data_structure_review/" class="archive-article-date">
+  	<time datetime="2018-01-20T16:41:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code>CUTEst</code> is the latest evolution of CUTE, <span style="color:blue"><em>the constrained and unconstrained testing environment for numerical optimization</em> </span>. Detailed instruction can be found at <a href="https://ccpforge.cse.rl.ac.uk/gf/project/cutest/wiki/" target="_blank" rel="noopener">CUTEst wiki</a>, <a href="https://link.springer.com/article/10.1007/s10589-014-9687-3" target="_blank" rel="noopener">CUTEst_1</a> and <a href="https://pdfs.semanticscholar.org/6ebd/6044c1dc63770ac480d5bf26d7a4f97a3cdb.pdf" target="_blank" rel="noopener">CUSTst_2</a> by <code>Nicholas I. M. Gould, etc.</code>. Currently, there are $1285$ problems including $372$ unconstrained problems in the set, with function evaluation (objective value, gradient, hessian) available.</p>
-<p>It takes me a while to install all the stuff and here I’m going to show how to create the <span style="color:blue">Matlab</span> and <span style="color:blue">Python</span> interface for <code>CUTEst</code>. I’m installing on <strong>macOS High Sierra, Version 10.13.2</strong>, <strong>Matlab 2017b</strong>, <strong>python2.7.10</strong>, and <strong>Xcode 9.3</strong>, it should be similar to other setting as well. If you’d like to work on linux, <a href="https://github.com/abelsiqueira/linux-cutest" target="_blank" rel="noopener">linux-cutest</a> would be what you’re looking for.</p>
-<h3 id="CUTEst_Installation">CUTEst Installation</h3><p>You could go over <a href="https://ccpforge.cse.rl.ac.uk/gf/project/cutest/wiki/" target="_blank" rel="noopener">CUTEst wiki</a> and install problem sets: cutest, mastsif, sifdecode, and archdefs, separately. However, I would recommend you to install cutest basis with <a href="https://github.com/optimizers/homebrew-cutest" target="_blank" rel="noopener">homebrew-cutest</a>.  There is no need to <code>git clone</code> the repository, as long as you have <code>homebrew</code> installed, just go with<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew tap optimizers/cutest  <span class="comment"># downloading problem sets (sifdecode, archdefs and cutest)</span></span><br><span class="line">brew install cutest <span class="comment"># install cutest to /usr/local/opt/ if not specified</span></span><br><span class="line"><span class="comment"># there are three options for the installation, can be checked with</span></span><br><span class="line"><span class="comment"># brew options cutest</span></span><br><span class="line"><span class="comment"># if you wanna to use it within matlab do</span></span><br><span class="line"><span class="comment"># brew install cutest --with-matlab</span></span><br><span class="line">brew install mastsif <span class="comment"># this will download all test problems</span></span><br></pre></td></tr></table></figure></p>
-<p>After install all the dependencies for cutest, run<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> <span class="string">"archdefs"</span> <span class="string">"mastsif"</span> <span class="string">"sifdecode"</span> <span class="string">"cutest"</span>; <span class="keyword">do</span> \</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">". <span class="variable">$(brew --prefix $f)</span>/<span class="variable">$f</span>.bashrc"</span> &gt;&gt; ~/.bashrc; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
-<p>This will add path scripts as following to your bash file (usually at <code>~/.bashrc</code>, otherwise add the following to your configuration correspondingly)<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">. /usr/<span class="built_in">local</span>/opt/archdefs/archdefs.bashrc</span><br><span class="line">. /usr/<span class="built_in">local</span>/opt/mastsif/mastsif.bashrc</span><br><span class="line">. /usr/<span class="built_in">local</span>/opt/sifdecode/sifdecode.bashrc</span><br><span class="line">. /usr/<span class="built_in">local</span>/opt/cutest/cutest.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>You would also need specify the executable command of sifdecode and cutest by adding the follows<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;SIFDECODE&#125;</span>/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;CUTEST&#125;</span>/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="string">"<span class="variable">$&#123;SIFDECODE&#125;</span>/man:<span class="variable">$&#123;MANPATH&#125;</span>"</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="string">"<span class="variable">$&#123;CUTEST&#125;</span>/man:<span class="variable">$&#123;MANPATH&#125;</span>"</span></span><br></pre></td></tr></table></figure></p>
-<a id="more"></a>
-<h3 id="Matlab_Interface">Matlab Interface</h3><ol>
-<li><p>You need also compile cutest problems using C or Fortran and interactive with matlab mex. To do this, one could follow <a href="https://github.com/optimizers/cutest-mirror/blob/master/doc/README.osx" target="_blank" rel="noopener">cutest-mirror, README.osx</a>, which suggest you have Xcode or at least xcode command-line installed. The matlab path should be provide as well</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> MYARCH=<span class="string">"mac64.osx.gfo"</span></span><br><span class="line"><span class="built_in">export</span> MYMATLABARCH=<span class="string">"mac64.osx.gfo"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> MYMATLAB=<span class="string">"/Applications/MATLAB_R2017b.app"</span></span><br><span class="line"><span class="built_in">export</span> MATLABPATH=<span class="variable">$CUTEST</span>/src/matlab:<span class="variable">$MATLABPATH</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>You need also copy <a href="https://github.com/optimizers/cutest-mirror/tree/master/doc/matlab-osx" target="_blank" rel="noopener">clang_maci64.xml</a> to your matlab version.</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp clang_maci64.xml /Applications/MATLAB_R2017b.app/bin/maci64/mexopts/</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Then you need to make sure <code>.mex</code> files can be compiled by C for Fortran for matlab usage.</p>
-<p> First, check whether the compiler path is wrong by</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/MATLAB_R2017b.app/bin/mex -setup -v</span><br></pre></td></tr></table></figure>
-<p> If everything goes right, you are lucky and can move forwards. Otherwise, with errors like</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No supported compiler or SDK was found. For options, visit https://www.mathworks.com/support/compilers.</span><br></pre></td></tr></table></figure>
-<p> You will need to do the following: at first, try to locate your SDK in Xcode, in may case,  it is</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs</span><br></pre></td></tr></table></figure>
-<p> It shows the SDK version for my Xcode is <strong>MacOSX10.13.sdk</strong> in my case. Then you need to modify your <strong>clang_maci64.xml</strong> file to make sure the Xcode C compiler can be founded, i.e. you should add these two lines in both <em>ISYSROOT</em>  and  <em>SDKVER</em> blocks (at around the end of the file)</p>
- <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dirExists</span> <span class="attr">name</span>=<span class="string">"$$/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">cmdReturns</span> <span class="attr">name</span>=<span class="string">"find $$ -name MacOSX10.13.sdk"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>After that, it should be good to setup the Xcode C compiler for matlab by</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/Applications/MATLAB_R2017b.app/bin/mex -setup C</span><br><span class="line"><span class="comment"># or please try</span></span><br><span class="line"><span class="comment"># /Applications/MATLAB_R2017b.app/bin/mex C++</span></span><br><span class="line"><span class="comment"># /Applications/MATLAB_R2017b.app/bin/mex FORTRAN</span></span><br></pre></td></tr></table></figure>
-<p>Note that each time if you upgrade matlab or Xcode, you may need to reconfigure the SDK path.</p>
-</li>
-<li><p>Next please refer to <a href="https://github.com/optimizers/cutest-mirror/blob/master/src/matlab/README.matlab" target="_blank" rel="noopener">cutest-mirror/src/matlab/README.matlab</a>. To run the test problem including problem decoding and function evaluation with given problem name (the problem name can be found in mastsif or cutest), run from bash as following</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cutest2matlab_osx PROBLEM_NAME</span><br></pre></td></tr></table></figure>
-<p> this should generate a set of files like</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">AUTOMAT.d          EXTER.o            RANGE.f            mcutest.o</span><br><span class="line">ELFUN.f            GROUP.f            RANGE.o</span><br><span class="line">ELFUN.o            GROUP.o            libROSENBR.dylib*</span><br><span class="line">EXTER.f            OUTSDIF.d          mcutest.mexmaci64*</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Open matlab in the same folder of those generated files, you could then do</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; cutest_terminate</span><br><span class="line">&gt;&gt; prob = cutest_setup()</span><br><span class="line">&gt;&gt; [f, g] = cutest_obj(prob.x)</span><br></pre></td></tr></table></figure>
-<p> A collection of usable functions for the problems can be found at <a href="https://pdfs.semanticscholar.org/6ebd/6044c1dc63770ac480d5bf26d7a4f97a3cdb.pdf" target="_blank" rel="noopener">CUSTst paper</a>. as well as <code>$CUTEST/src/matlab</code>. To list a few</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">README.matlab        cutest_ihess.m       cutest_slagjac.m</span><br><span class="line">ctools.F             cutest_isphess.m     cutest_sobj.m</span><br><span class="line">cutest.m             cutest_jprod.m       cutest_sphess.m</span><br><span class="line">cutest_connames.m    cutest_jtprod.m      cutest_terminate.m</span><br><span class="line">cutest_cons.m        cutest_lag.m         cutest_varnames.m</span><br><span class="line">cutest_dims.m        cutest_lagjac.m      gtools.F</span><br><span class="line">cutest_grad.m        cutest_obj.m         makemaster</span><br><span class="line">cutest_gradhess.m    cutest_objcons.m     mcutest.c</span><br><span class="line">cutest_gradsphess.m  cutest_scons.m       test_cutest.m</span><br><span class="line">cutest_hess.m        cutest_setup.m       utools.F</span><br><span class="line">cutest_hprod.m       cutest_sgrad.m</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="Python_Interface">Python Interface</h3><p>I tried to install everything on <code>python3</code> but no lucky. Here I’m showing the installation over <code>python2.7.10</code></p>
-<ol>
-<li><p>You need two module to start the installation, <a href="https://github.com/kenjydem/CUTEST.py" target="_blank" rel="noopener">CUTEST.py</a> and it’s necessary dependency <a href="https://github.com/PythonOptimizers/NLP.py" target="_blank" rel="noopener">NLP.py</a>. Follow the installation instruction.</p>
-</li>
-<li><p>If you encounter error regarding compiling the original <code>.sif</code> problem data file (as I have the error). Try to modify <code>CUTEST.py/cutest/tools/compile.py</code> and add fortran compiling option <span style="color:blue">[“-lfgfortran”]</span> at line $111$.</p>
-</li>
-<li><p>As long as you have <code>CUSTst</code> installed correctly, you should able to following the similar steps as in <code>Matlab interface installation</code> to add necessary path.</p>
-</li>
-<li><p>The usage is quite simple, just go with</p>
- <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from cutest.model.cutestmodel import CUTEstModel</span><br><span class="line">&gt;&gt;&gt; model = CUTEstModel(<span class="string">'ROSENBR'</span>)</span><br><span class="line">&gt;&gt;&gt; f = model.obj(model.x0)</span><br><span class="line">&gt;&gt;&gt; g = model.grad(model.x0)</span><br><span class="line">&gt;&gt;&gt; H = model.hess(model.x0)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>A collection of usable function for the problem can be found at <a href="https://github.com/kenjydem/CUTEST.py/blob/master/cutest/model/cutestmodel.py" target="_blank" rel="noopener">cutestmodel.py</a>.<br>Enjoy!</p>
-</li>
-</ol>
+        <!-- ## Sorting
++ Bubble Sort
++ Selection Sort
++ Insertion Sort
++ Merge Sort
++ Quick Sort
++ Random Quick Sort
++ Counting Sort
++ Radix Sort
 
+## -->
+<h2 id="Data_structure_basics">Data structure basics</h2><ul>
+<li>Array: optimal for indexing; bad at searching, inserting, and deleting. Optimized search: O(log n)</li>
+<li>Linked List: optimal for inserting and deletion; bad at indexing and searching. Optimized search: O(n)<ul>
+<li>Doubly linked list</li>
+<li>Circularly linked list</li>
+<li>Stack: LIFO</li>
+<li>Queues: FIFO</li>
+</ul>
+</li>
+<li>Hash Table or Hash Map: designed to optimize searching, insertion and deletion.<ul>
+<li>Hash Collisions (All hash functions have this problem)</li>
+</ul>
+</li>
+<li>Binary Tree: designed to optimize searching and sorting. O(log n)<ul>
+<li>Binary search trees (comparable keys)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Search_Basics">Search Basics</h2><ul>
+<li>Breadth First Search: O(|E| + |V|), looping algorithm</li>
+<li>Depth First Search: O(|E| + |V|), less memory intensive than breadth first search, recursive algorithm</li>
+</ul>
+<h2 id="Sorting">Sorting</h2><ul>
+<li>Merge Sort: Best O(n), Average O(n log n), Worst O(n log n)</li>
+<li>Quick Sort: Best O(n), Average O(n log n), Worst O(n^2)<ul>
+<li>Faster in practice</li>
+</ul>
+</li>
+<li>Bubble Sort: Best O(n), Average O(n^2), Worst O(n^2)</li>
+</ul>
+<h2 id="Basic_Algorithms">Basic Algorithms</h2><ul>
+<li>Recursive Algorithms: usually more expressive and easier to implement</li>
+<li>Iterative Algorithms: use less memory</li>
+<li>Greedy Algorithm:</li>
+</ul>
+<p>Reference:</p>
+<pre><code><span class="bullet">+ </span>[<span class="link_label">VisuAlgo</span>](<span class="link_url">https://visualgo.net/en</span>)
+<span class="bullet">+ </span>[<span class="link_label">cheat-sheet</span>](<span class="link_url">https://gist.github.com/TSiege/cbb0507082bb18ff7e4b</span>)
+</code></pre>
       
 
       
@@ -256,28 +251,13 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">matlab</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/optimization//" class="article-tag-list-link color3">optimization</a>
+        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
         		</li>
       		
 		</ul>
@@ -332,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://xihey.com/2017/12/12/Installing-CUTEst-on-MacOSX-with-Matlab-Python/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xihey.com/2018/01/20/data_structure_review/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -346,18 +326,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/01/20/data_structure_review/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Data Structure Quick Review
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/09/02/Runing-Jupyter-Notebooks-on-a-Remote-Server/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Runing Jupyter Notebooks on a Remote Server</div>
+    <a href="/2017/12/12/Installing-CUTEst-on-MacOSX-with-Matlab-Python/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Installing CUTEst on MacOSX with Matlab and Python Interface</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -384,7 +355,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CUTEst_Installation"><span class="toc-number">1.</span> <span class="toc-text">CUTEst Installation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Matlab_Interface"><span class="toc-number">2.</span> <span class="toc-text">Matlab Interface</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python_Interface"><span class="toc-number">3.</span> <span class="toc-text">Python Interface</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Data_structure_basics"><span class="toc-number">1.</span> <span class="toc-text">Data structure basics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Search_Basics"><span class="toc-number">2.</span> <span class="toc-text">Search Basics</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sorting"><span class="toc-number">3.</span> <span class="toc-text">Sorting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic_Algorithms"><span class="toc-number">4.</span> <span class="toc-text">Basic Algorithms</span></a></li></ol>
                     </div>
                 </span>
             </div>

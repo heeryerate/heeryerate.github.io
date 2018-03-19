@@ -175,6 +175,124 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-data_structure_review" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/20/data_structure_review/">Data Structure Quick Review</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/20/data_structure_review/" class="archive-article-date">
+  	<time datetime="2018-01-20T16:41:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- ## Sorting
++ Bubble Sort
++ Selection Sort
++ Insertion Sort
++ Merge Sort
++ Quick Sort
++ Random Quick Sort
++ Counting Sort
++ Radix Sort
+
+## -->
+<h2 id="Data_structure_basics">Data structure basics</h2><ul>
+<li>Array: optimal for indexing; bad at searching, inserting, and deleting. Optimized search: O(log n)</li>
+<li>Linked List: optimal for inserting and deletion; bad at indexing and searching. Optimized search: O(n)<ul>
+<li>Doubly linked list</li>
+<li>Circularly linked list</li>
+<li>Stack: LIFO</li>
+<li>Queues: FIFO</li>
+</ul>
+</li>
+<li>Hash Table or Hash Map: designed to optimize searching, insertion and deletion.<ul>
+<li>Hash Collisions (All hash functions have this problem)</li>
+</ul>
+</li>
+<li>Binary Tree: designed to optimize searching and sorting. O(log n)<ul>
+<li>Binary search trees (comparable keys)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Search_Basics">Search Basics</h2><ul>
+<li>Breadth First Search: O(|E| + |V|), looping algorithm</li>
+<li>Depth First Search: O(|E| + |V|), less memory intensive than breadth first search, recursive algorithm</li>
+</ul>
+<h2 id="Sorting">Sorting</h2><ul>
+<li>Merge Sort: Best O(n), Average O(n log n), Worst O(n log n)</li>
+<li>Quick Sort: Best O(n), Average O(n log n), Worst O(n^2)<ul>
+<li>Faster in practice</li>
+</ul>
+</li>
+<li>Bubble Sort: Best O(n), Average O(n^2), Worst O(n^2)</li>
+</ul>
+<h2 id="Basic_Algorithms">Basic Algorithms</h2><ul>
+<li>Recursive Algorithms: usually more expressive and easier to implement</li>
+<li>Iterative Algorithms: use less memory</li>
+<li>Greedy Algorithm:</li>
+</ul>
+<p>Reference:</p>
+<pre><code><span class="bullet">+ </span>[<span class="link_label">VisuAlgo</span>](<span class="link_url">https://visualgo.net/en</span>)
+<span class="bullet">+ </span>[<span class="link_label">cheat-sheet</span>](<span class="link_url">https://gist.github.com/TSiege/cbb0507082bb18ff7e4b</span>)
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programming//" class="article-tag-list-link color2">programming</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Installing-CUTEst-on-MacOSX-with-Matlab-Python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -836,10 +954,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Latex">Latex</h2><ol>
-<li>Install latex packages<ul>
+<li><p>Install latex packages locally</p>
+<ul>
 <li>Download the package</li>
 <li>Put the package into <code>/usr/local/texlive/texmf-local/</code></li>
 </ul>
+</li>
+<li><p>For error like <code>destination with the same</code>, try to adjust the position of package</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;hyperref&#125;</span><br></pre></td></tr></table></figure>
+<p> and put</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;cleveref&#125;</span><br><span class="line">% at the last, better before</span><br><span class="line">\begin&#123;document&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="Git">Git</h2><p><strong>NOTE: First commit your current changes, or you will lose them.</strong></p>
@@ -966,100 +1090,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">editor</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-handy_commands" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/25/handy_commands/">Handy commands</a>
-    </h1>
-  
-
-        
-        <a href="/2016/04/25/handy_commands/" class="archive-article-date">
-  	<time datetime="2016-04-25T04:21:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-04-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="screen">screen</h2><p><code>screen</code> command is very helpful if you want to have multiple shells running in one terminal window. Also, it can help you run a program persistently (even if a terminal window breaks or closes).</p>
-<ol>
-<li><p>Create a session. You can easily exit current session by <code>Ctrl -a d</code> or terminate a session by <code>Ctrl -r d</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>List all sessions you have</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen -ls</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Reattach a session</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ screen -r sessionName</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-        
-          <a class="article-more-a" href="/2016/04/25/handy_commands/#more">show more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>

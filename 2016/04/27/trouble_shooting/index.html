@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Xi He">
 <meta property="og:description" content="A collection of trouble shootings">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-12-28T14:21:24.000Z">
+<meta property="og:updated_time" content="2018-03-19T16:37:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Troubleshootings">
 <meta name="twitter:description" content="A collection of trouble shootings">
@@ -196,10 +196,16 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Latex">Latex</h2><ol>
-<li>Install latex packages<ul>
+<li><p>Install latex packages locally</p>
+<ul>
 <li>Download the package</li>
 <li>Put the package into <code>/usr/local/texlive/texmf-local/</code></li>
 </ul>
+</li>
+<li><p>For error like <code>destination with the same</code>, try to adjust the position of package</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;hyperref&#125;</span><br></pre></td></tr></table></figure>
+<p> and put</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;cleveref&#125;</span><br><span class="line">% at the last, better before</span><br><span class="line">\begin&#123;document&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <h2 id="Git">Git</h2><p><strong>NOTE: First commit your current changes, or you will lose them.</strong></p>
