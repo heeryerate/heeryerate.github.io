@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://xihey.com">
   <title>Runing Jupyter Notebooks on a Remote Server | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Open one terminal tab and start the jupyter server on polyp30123ssh your_id@polyps.ie.lehigh.edussh polyp30jupyter notebook --no-browser --ip=*   output:1http://localhost:your_polyp30_port/?token=you">
+  <meta name="description" content="A brief instruction on how to run Jupyter Notebook locally while connected a remote server.  Open one terminal tab and start the jupyter server on polyp30123ssh your_id@polyps.ie.lehigh.edussh polyp30">
 <meta name="keywords" content="linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Runing Jupyter Notebooks on a Remote Server">
 <meta property="og:url" content="http://xihey.com/2017/09/02/Runing-Jupyter-Notebooks-on-a-Remote-Server/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="Open one terminal tab and start the jupyter server on polyp30123ssh your_id@polyps.ie.lehigh.edussh polyp30jupyter notebook --no-browser --ip=*   output:1http://localhost:your_polyp30_port/?token=you">
+<meta property="og:description" content="A brief instruction on how to run Jupyter Notebook locally while connected a remote server.  Open one terminal tab and start the jupyter server on polyp30123ssh your_id@polyps.ie.lehigh.edussh polyp30">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-12-28T14:21:36.000Z">
+<meta property="og:updated_time" content="2018-03-21T21:18:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runing Jupyter Notebooks on a Remote Server">
-<meta name="twitter:description" content="Open one terminal tab and start the jupyter server on polyp30123ssh your_id@polyps.ie.lehigh.edussh polyp30jupyter notebook --no-browser --ip=*   output:1http://localhost:your_polyp30_port/?token=you">
+<meta name="twitter:description" content="A brief instruction on how to run Jupyter Notebook locally while connected a remote server.  Open one terminal tab and start the jupyter server on polyp30123ssh your_id@polyps.ie.lehigh.edussh polyp30">
   
     <link rel="alternative" href="/atom.xml" title="Xi He" type="application/atom+xml">
   
@@ -195,19 +195,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
+        <p>A brief instruction on how to run Jupyter Notebook locally while connected a remote server.</p>
+<ul>
 <li>Open one terminal tab and start the jupyter server on <code>polyp30</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh your_id@polyps.ie.lehigh.edu</span><br><span class="line">ssh polyp30</span><br><span class="line">jupyter notebook --no-browser --ip=*</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>output:<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//localhost:your_polyp30_port/?token=your_token</span></span><br></pre></td></tr></table></figure></p>
+<p>output: <code>your_polyp30_port</code> and <code>your_token</code><br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//localhost:your_polyp30_port/?token=your_token</span></span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><p>Open the other terminal tab and forward <code>your_polyp30_port</code> from <code>polyp30</code> to <code>polyp1</code></p>
+<li><p>Open the other terminal tab and forward <code>your_polyp30_port</code> from <code>polyp30</code> to <code>polyp1</code>. <code>your_polyp1_port</code> need to be set manually, can be any.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh your_id@polyps.ie.lehigh.edu</span><br><span class="line">ssh -L \*:your_polyp1_port:localhost:your_polyp30_port -N polyp30</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Open the web browser</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//polyps.ie.lehigh.edu:your_polyp1_port/?token=your_token</span></span><br></pre></td></tr></table></figure>
+<li><p>Open the web browser locally using <code>your_polyp1_port</code> and <code>your_token</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://polyps.ie.lehigh.edu:your_polyp1_port/?token=your_token</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<blockquote>
+<p>   A bash shortcut using <code>your_token</code> as parameter.<br>    <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">pjp</span></span>() &#123;</span><br><span class="line">    open -a Safari <span class="string">"http://polyps.ie.lehigh.edu:8314/?token=<span class="variable">$1</span></span></span><br><span class="line"><span class="string">"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
       
 
