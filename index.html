@@ -197,7 +197,7 @@
       
         <p><code>CUTEst</code> is the latest evolution of CUTE, <span style="color:blue"><em>the constrained and unconstrained testing environment for numerical optimization</em> </span>. Detailed instruction can be found at <a href="https://ccpforge.cse.rl.ac.uk/gf/project/cutest/wiki/" target="_blank" rel="noopener">CUTEst wiki</a>, <a href="https://link.springer.com/article/10.1007/s10589-014-9687-3" target="_blank" rel="noopener">CUTEst_1</a> and <a href="https://pdfs.semanticscholar.org/6ebd/6044c1dc63770ac480d5bf26d7a4f97a3cdb.pdf" target="_blank" rel="noopener">CUSTst_2</a> by <code>Nicholas I. M. Gould, etc.</code>. Currently, there are $1285$ problems including $372$ unconstrained problems in the set, with function evaluation (objective value, gradient, hessian) available.</p>
 <p>It takes me a while to install all the stuff and here I’m going to show how to create the <span style="color:blue">Matlab</span> and <span style="color:blue">Python</span> interface for <code>CUTEst</code>. I’m installing on <strong>macOS High Sierra, Version 10.13.2</strong>, <strong>Matlab 2017b</strong>, <strong>python2.7.10</strong>, and <strong>Xcode 9.3</strong>, it should be similar to other setting as well. If you’d like to work on linux, <a href="https://github.com/abelsiqueira/linux-cutest" target="_blank" rel="noopener">linux-cutest</a> would be what you’re looking for.</p>
-<h3 id="CUTEst_Installation">CUTEst Installation</h3><p>You could go over <a href="https://ccpforge.cse.rl.ac.uk/gf/project/cutest/wiki/" target="_blank" rel="noopener">CUTEst wiki</a> and install problem sets: cutest, mastsif, sifdecode, and archdefs, separately. However, I would recommend you to install cutest basis with <a href="https://github.com/optimizers/homebrew-cutest" target="_blank" rel="noopener">homebrew-cutest</a>.  There is no need to <code>git clone</code> the repository, as long as you have <code>homebrew</code> installed, just go with<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew tap optimizers/cutest  <span class="comment"># downloading problem sets (sifdecode, archdefs and cutest)</span></span><br><span class="line">brew install cutest <span class="comment"># install cutest to /usr/local/opt/ if not specified</span></span><br><span class="line"><span class="comment"># there are three options for the installation, can be checked with</span></span><br><span class="line"><span class="comment"># brew options cutest</span></span><br><span class="line"><span class="comment"># if you wanna to use it within matlab do</span></span><br><span class="line"><span class="comment"># brew install cutest --with-matlab</span></span><br><span class="line">brew install mastsif <span class="comment"># this will download all test problems</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="CUTEst-Installation"><a href="#CUTEst-Installation" class="headerlink" title="CUTEst Installation"></a>CUTEst Installation</h3><p>You could go over <a href="https://ccpforge.cse.rl.ac.uk/gf/project/cutest/wiki/" target="_blank" rel="noopener">CUTEst wiki</a> and install problem sets: cutest, mastsif, sifdecode, and archdefs, separately. However, I would recommend you to install cutest basis with <a href="https://github.com/optimizers/homebrew-cutest" target="_blank" rel="noopener">homebrew-cutest</a>.  There is no need to <code>git clone</code> the repository, as long as you have <code>homebrew</code> installed, just go with<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">brew tap optimizers/cutest  <span class="comment"># downloading problem sets (sifdecode, archdefs and cutest)</span></span><br><span class="line">brew install cutest <span class="comment"># install cutest to /usr/local/opt/ if not specified</span></span><br><span class="line"><span class="comment"># there are three options for the installation, can be checked with</span></span><br><span class="line"><span class="comment"># brew options cutest</span></span><br><span class="line"><span class="comment"># if you wanna to use it within matlab do</span></span><br><span class="line"><span class="comment"># brew install cutest --with-matlab</span></span><br><span class="line">brew install mastsif <span class="comment"># this will download all test problems</span></span><br></pre></td></tr></table></figure></p>
 <p>After install all the dependencies for cutest, run<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> <span class="string">"archdefs"</span> <span class="string">"mastsif"</span> <span class="string">"sifdecode"</span> <span class="string">"cutest"</span>; <span class="keyword">do</span> \</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">". <span class="variable">$(brew --prefix $f)</span>/<span class="variable">$f</span>.bashrc"</span> &gt;&gt; ~/.bashrc; \</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
 <p>This will add path scripts as following to your bash file (usually at <code>~/.bashrc</code>, otherwise add the following to your configuration correspondingly)<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">. /usr/<span class="built_in">local</span>/opt/archdefs/archdefs.bashrc</span><br><span class="line">. /usr/<span class="built_in">local</span>/opt/mastsif/mastsif.bashrc</span><br><span class="line">. /usr/<span class="built_in">local</span>/opt/sifdecode/sifdecode.bashrc</span><br><span class="line">. /usr/<span class="built_in">local</span>/opt/cutest/cutest.bashrc</span><br></pre></td></tr></table></figure></p>
 <p>You would also need specify the executable command of sifdecode and cutest by adding the follows<br>    <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;SIFDECODE&#125;</span>/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">"<span class="variable">$&#123;CUTEST&#125;</span>/bin:<span class="variable">$&#123;PATH&#125;</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="string">"<span class="variable">$&#123;SIFDECODE&#125;</span>/man:<span class="variable">$&#123;MANPATH&#125;</span>"</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="string">"<span class="variable">$&#123;CUTEST&#125;</span>/man:<span class="variable">$&#123;MANPATH&#125;</span>"</span></span><br></pre></td></tr></table></figure></p>
@@ -298,7 +298,7 @@
 + Radix Sort
 
 ## -->
-<h3 id="Data_structure_basics">Data structure basics</h3><ul>
+<h3 id="Data-structure-basics"><a href="#Data-structure-basics" class="headerlink" title="Data structure basics"></a>Data structure basics</h3><ul>
 <li>Array: optimal for indexing; bad at searching, inserting, and deleting. Optimized search: O(log n)</li>
 <li>Linked List: optimal for inserting and deletion; bad at indexing and searching. Optimized search: O(n)<ul>
 <li>Doubly linked list</li>
@@ -316,11 +316,11 @@
 </ul>
 </li>
 </ul>
-<h3 id="Search_Basics">Search Basics</h3><ul>
+<h3 id="Search-Basics"><a href="#Search-Basics" class="headerlink" title="Search Basics"></a>Search Basics</h3><ul>
 <li>Breadth First Search: O(|E| + |V|), looping algorithm</li>
 <li>Depth First Search: O(|E| + |V|), less memory intensive than breadth first search, recursive algorithm</li>
 </ul>
-<h3 id="Sorting">Sorting</h3><ul>
+<h3 id="Sorting"><a href="#Sorting" class="headerlink" title="Sorting"></a>Sorting</h3><ul>
 <li>Merge Sort: Best O(n), Average O(n log n), Worst O(n log n)</li>
 <li>Quick Sort: Best O(n), Average O(n log n), Worst O(n^2)<ul>
 <li>Faster in practice</li>
@@ -328,14 +328,14 @@
 </li>
 <li>Bubble Sort: Best O(n), Average O(n^2), Worst O(n^2)</li>
 </ul>
-<h3 id="Basic_Algorithms">Basic Algorithms</h3><ul>
+<h3 id="Basic-Algorithms"><a href="#Basic-Algorithms" class="headerlink" title="Basic Algorithms"></a>Basic Algorithms</h3><ul>
 <li>Recursive Algorithms: usually more expressive and easier to implement</li>
 <li>Iterative Algorithms: use less memory</li>
 <li>Greedy Algorithm:</li>
 </ul>
 <p>Reference:</p>
-<pre><code><span class="bullet">+ </span>[<span class="link_label">VisuAlgo</span>](<span class="link_url">https://visualgo.net/en</span>)
-<span class="bullet">+ </span>[<span class="link_label">cheat-sheet</span>](<span class="link_url">https://gist.github.com/TSiege/cbb0507082bb18ff7e4b</span>)
+<pre><code>+ [VisuAlgo](https://visualgo.net/en)
++ [cheat-sheet](https://gist.github.com/TSiege/cbb0507082bb18ff7e4b)
 </code></pre>
       
 
@@ -507,7 +507,7 @@
 <p>First, I will show how to use <code>mpi4py</code> and later on will show how to install and use <code>mpi4py</code> on both linux and windows.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mpi4py</span><br></pre></td></tr></table></figure>
 <p><em>to be continue…</em></p>
-<h2 id="Reference:">Reference:</h2><p><a href="http://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="noopener">mpi4py</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><p><a href="http://mpi4py.readthedocs.io/en/stable/" target="_blank" rel="noopener">mpi4py</a></p>
 
       
 
@@ -592,7 +592,7 @@
 <p>Is there any reason for a class declaration to inherit from <code>object</code>?</p>
 </blockquote>
 <p>In Python 3, apart from compatibility between Python 2 and 3, <em>no</em>. In Python 2, <em>yes</em>.</p>
-<h2 id="Python_2-x_story:">Python 2.x story:</h2><p>In Python 2.x (from 2.2 onward) there’s two styles of classes depending on the presence or absence of a built-in type as a base-class:</p>
+<h2 id="Python-2-x-story"><a href="#Python-2-x-story" class="headerlink" title="Python 2.x story:"></a>Python 2.x story:</h2><p>In Python 2.x (from 2.2 onward) there’s two styles of classes depending on the presence or absence of a built-in type as a base-class:</p>
 <ul>
 <li><strong>“classic” style</strong> classes: they have no built-in type as a base class:</li>
 </ul>
@@ -864,7 +864,7 @@
         <p>Recall the basic Newton step $p_k^N$ is obtained by solving the symmetric $n\times n$ linear system<br>$$\nabla^2f(x_k)p_k^N = - \nabla f(x_k).$$</p>
 <p>It’s easy to know that once the Hessian $\nabla^2f(x_k)$ is positive definite, we are able to get a descent direction. In this post, we discuss some practical approaches to tackle the situation when $\nabla^2f(x_k)$ is indefinite or close to being singular.</p>
 <p>Local linear convergence rate is obtained if the starting point $x_0$ is sufficiently near $x*$ and satisfies the following termination condition $||r_k||\leq \eta_k||\nabla f(x_k)||$. If $\eta_k \to 0$, superlinear convergence rate is obtained and further if $\eta_k=O(||\nabla f(x_k)||)$, quadratic convergence rate is guaranteed.</p>
-<h2 id="Line_search_Newton-CG_method_(truncated_Netwon_method)">Line search Newton-CG method (truncated Netwon method)</h2><p><strong>Solve the equation by CG method, and terminating if negative curvature is encountered.</strong></p>
+<h2 id="Line-search-Newton-CG-method-truncated-Netwon-method"><a href="#Line-search-Newton-CG-method-truncated-Netwon-method" class="headerlink" title="Line search Newton-CG method (truncated Netwon method)"></a>Line search Newton-CG method (truncated Netwon method)</h2><p><strong>Solve the equation by CG method, and terminating if negative curvature is encountered.</strong></p>
 <blockquote>
 <ol>
 <li>Choose the starting point for CG iteration $x^{(0)}$ (or the optimal solution of the previous linear system)</li>
@@ -957,7 +957,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Latex">Latex</h2><ol>
+        <h2 id="Latex"><a href="#Latex" class="headerlink" title="Latex"></a>Latex</h2><ol>
 <li><p>Install latex packages locally</p>
 <ul>
 <li>Download the package</li>
@@ -970,18 +970,18 @@
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;cleveref&#125;</span><br><span class="line">% at the last, better before</span><br><span class="line">\begin&#123;document&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="Git">Git</h2><p><strong>NOTE: First commit your current changes, or you will lose them.</strong></p>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><p><strong>NOTE: First commit your current changes, or you will lose them.</strong></p>
 <ol>
 <li>fatal: remote origin already exists</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git remote rm origin</span><br><span class="line">$ git remote add origin git@github.com:username/repositoryname.git</span><br></pre></td></tr></table></figure>
 <p>or reset the remote git repository</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">set</span>-url origin https://&lt;gitpath&gt;/.git</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="2">
 <li>.gitignore not working</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git rm  -r --cached .</span><br><span class="line">$ git add .</span><br><span class="line">$ git commit -m <span class="string">"fixed untracked files"</span></span><br></pre></td></tr></table></figure>
-<h2 id="Sublime">Sublime</h2><ol>
+<h2 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h2><ol>
 <li>Change default sublime builder (e.g <code>python</code>)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Package Control -- PackageResourceViewer.Open\ Resource -- python.sublime-build</span><br></pre></td></tr></table></figure></li>
 </ol>
 
@@ -1076,8 +1076,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Headings">Headings</h2><h1 id="This_is_an_H1-">This is an H1.</h1><h2 id="This_is_an_H2-">This is an H2.</h2><h3 id="This_is_an_H3-">This is an H3.</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is an H1.</span></span><br><span class="line"><span class="comment">## This is an H2.</span></span><br><span class="line"><span class="comment">### This is an H23.</span></span><br></pre></td></tr></table></figure>
-<h2 id="Character_Styles">Character Styles</h2><p><em>Italic characters</em>, <strong>Bold characters</strong>, <del>Deleted characters</del><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*Italic characters*, **Bold characters**, ~~Deleted characters~~</span><br></pre></td></tr></table></figure></p>
+        <h2 id="Headings"><a href="#Headings" class="headerlink" title="Headings"></a>Headings</h2><h1 id="This-is-an-H1"><a href="#This-is-an-H1" class="headerlink" title="This is an H1."></a>This is an H1.</h1><h2 id="This-is-an-H2"><a href="#This-is-an-H2" class="headerlink" title="This is an H2."></a>This is an H2.</h2><h3 id="This-is-an-H3"><a href="#This-is-an-H3" class="headerlink" title="This is an H3."></a>This is an H3.</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># This is an H1.</span></span><br><span class="line"><span class="comment">## This is an H2.</span></span><br><span class="line"><span class="comment">### This is an H23.</span></span><br></pre></td></tr></table></figure>
+<h2 id="Character-Styles"><a href="#Character-Styles" class="headerlink" title="Character Styles"></a>Character Styles</h2><p><em>Italic characters</em>, <strong>Bold characters</strong>, <del>Deleted characters</del><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*Italic characters*, **Bold characters**, ~~Deleted characters~~</span><br></pre></td></tr></table></figure></p>
         
           <a class="article-more-a" href="/2016/04/25/Markdown_cheatsheet/#more">show more >></a>
         
@@ -1304,11 +1304,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">

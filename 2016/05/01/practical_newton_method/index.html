@@ -198,7 +198,7 @@
         <p>Recall the basic Newton step $p_k^N$ is obtained by solving the symmetric $n\times n$ linear system<br>$$\nabla^2f(x_k)p_k^N = - \nabla f(x_k).$$</p>
 <p>It’s easy to know that once the Hessian $\nabla^2f(x_k)$ is positive definite, we are able to get a descent direction. In this post, we discuss some practical approaches to tackle the situation when $\nabla^2f(x_k)$ is indefinite or close to being singular.</p>
 <p>Local linear convergence rate is obtained if the starting point $x_0$ is sufficiently near $x*$ and satisfies the following termination condition $||r_k||\leq \eta_k||\nabla f(x_k)||$. If $\eta_k \to 0$, superlinear convergence rate is obtained and further if $\eta_k=O(||\nabla f(x_k)||)$, quadratic convergence rate is guaranteed.</p>
-<h2 id="Line_search_Newton-CG_method_(truncated_Netwon_method)">Line search Newton-CG method (truncated Netwon method)</h2><p><strong>Solve the equation by CG method, and terminating if negative curvature is encountered.</strong></p>
+<h2 id="Line-search-Newton-CG-method-truncated-Netwon-method"><a href="#Line-search-Newton-CG-method-truncated-Netwon-method" class="headerlink" title="Line search Newton-CG method (truncated Netwon method)"></a>Line search Newton-CG method (truncated Netwon method)</h2><p><strong>Solve the equation by CG method, and terminating if negative curvature is encountered.</strong></p>
 <blockquote>
 <ol>
 <li>Choose the starting point for CG iteration $x^{(0)}$ (or the optimal solution of the previous linear system)</li>
@@ -217,10 +217,10 @@
 <li>for k = 0, 1, 2, …<br>  Compute a search direction $p_k$ as described above. Terminate when $||r_k|| \leq \min(0.5, \sqrt{||\nabla f(x_k)||})||\nabla f(x_k)||$ or a negative curvature is encountered.</li>
 <li>Set $x_{k+1} = x_k + \alpha_k p_k$, where $\alpha_k$ is obtained by some line search method.</li>
 </ol>
-<h2 id="Modified_Newton_method">Modified Newton method</h2><p><strong>Modify the Hessian matrix $\nabla^2f(x_k)$ before or during the solution of the equation</strong></p>
-<h2 id="Trust-region_Newton_method">Trust-region Newton method</h2><p><strong>Exact Hessian matrix is used to solving a trust-region model</strong></p>
-<h2 id="Cubic_regularization_methods">Cubic regularization methods</h2><p>to be continue…</p>
-<h2 id="Reference:">Reference:</h2><ul>
+<h2 id="Modified-Newton-method"><a href="#Modified-Newton-method" class="headerlink" title="Modified Newton method"></a>Modified Newton method</h2><p><strong>Modify the Hessian matrix $\nabla^2f(x_k)$ before or during the solution of the equation</strong></p>
+<h2 id="Trust-region-Newton-method"><a href="#Trust-region-Newton-method" class="headerlink" title="Trust-region Newton method"></a>Trust-region Newton method</h2><p><strong>Exact Hessian matrix is used to solving a trust-region model</strong></p>
+<h2 id="Cubic-regularization-methods"><a href="#Cubic-regularization-methods" class="headerlink" title="Cubic regularization methods"></a>Cubic regularization methods</h2><p>to be continue…</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
 <li><a href="http://home.agh.edu.pl/~pba/pdfdoc/Numerical_Optimization.pdf" target="_blank" rel="noopener">Numerical Optimization</a></li>
 </ul>
 
@@ -521,11 +521,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
