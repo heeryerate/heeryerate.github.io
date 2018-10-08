@@ -18,20 +18,22 @@ ga('send', 'pageview');
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xihey.com">
-  <title>Use GitHub and Hexo to build a Blog | Xi He</title>
+  <title>An unconstrained nonlinear optimization library in Python | Xi He</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="The first try on using [hexo](https://hexo.io/) to build website.">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="An implementation of all possible optimization algorithms in nonlinear optimization">
+<meta name="keywords" content="nonlinear">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Use GitHub and Hexo to build a Blog">
-<meta property="og:url" content="http://xihey.com/2015/08/15/build_website/index.html">
+<meta property="og:title" content="An unconstrained nonlinear optimization library in Python">
+<meta property="og:url" content="http://xihey.com/1991/04/11/mr_eleven_lib/index.html">
 <meta property="og:site_name" content="Xi He">
-<meta property="og:description" content="The first try on using [hexo](https://hexo.io/) to build website.">
+<meta property="og:description" content="An implementation of all possible optimization algorithms in nonlinear optimization">
 <meta property="og:locale" content="English">
-<meta property="og:updated_time" content="2017-12-28T14:26:06.000Z">
+<meta property="og:image" content="https://cdn0.iconfinder.com/data/icons/science-37/100/science-04-512.png">
+<meta property="og:updated_time" content="2018-10-08T16:02:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Use GitHub and Hexo to build a Blog">
-<meta name="twitter:description" content="The first try on using [hexo](https://hexo.io/) to build website.">
+<meta name="twitter:title" content="An unconstrained nonlinear optimization library in Python">
+<meta name="twitter:description" content="An implementation of all possible optimization algorithms in nonlinear optimization">
+<meta name="twitter:image" content="https://cdn0.iconfinder.com/data/icons/science-37/100/science-04-512.png">
   
     <link rel="alternative" href="/atom.xml" title="Xi He" type="application/atom+xml">
   
@@ -174,43 +176,37 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-build_website" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-mr_eleven_lib" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Use GitHub and Hexo to build a Blog
+      An unconstrained nonlinear optimization library in Python
     </h1>
   
 
         
-        <a href="/2015/08/15/build_website/" class="archive-article-date">
-  	<time datetime="2015-08-15T14:28:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-08-15</time>
+        <a href="/1991/04/11/mr_eleven_lib/" class="archive-article-date">
+  	<time datetime="1991-04-11T08:08:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1991-04-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This website is built by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> + <a href="https://github.com/" target="_blank" rel="noopener">Github</a>(<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>) + <a href="https://www.godaddy.com/" target="_blank" rel="noopener">Godaddy</a> + <a href="https://www.dnspod.cn/" target="_blank" rel="noopener">Dnspod</a>.</p>
-<p>You should have already installed <a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJS</a>, which supports the <code>node.js</code> based framework, <code>Hexo</code>.</p>
-<!-- ## Install Hexo
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
-<h2 id="Initialize-a-hexo-website"><a href="#Initialize-a-hexo-website" class="headerlink" title="Initialize a hexo website"></a>Initialize a hexo website</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init Blog</span><br></pre></td></tr></table></figure>
-<h2 id="The-next-step"><a href="#The-next-step" class="headerlink" title="The next step"></a>The next step</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">: )</span><br><span class="line"><span class="string">``</span><span class="string">` --&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;!-- ## Reminder on how to create new post</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span> javascript</span><br><span class="line">hexo <span class="keyword">new</span> [layout] &lt;titlename&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="Reminder-on-how-to-host-an-image-by-google-drive"><a href="#Reminder-on-how-to-host-an-image-by-google-drive" class="headerlink" title="Reminder on how to host an image by google drive"></a>Reminder on how to host an image by google drive</h2><blockquote>
-<p>Share your image –&gt;</p>
-</blockquote>
-<!--
-<center>
-<embed src="http://arxiv.org/pdf/1510.06684.pdf" style="width:100%; height:600px;" frameborder="10">
-</center>
--->
+        <p>I’m current working on a <code>python</code> library aim to provide an easy comparison among different algorithms. This blog serves as a simple guide on how to use the library.</p>
+<h2 id="Prerequisite-amp-Dependencies"><a href="#Prerequisite-amp-Dependencies" class="headerlink" title="Prerequisite &amp; Dependencies"></a>Prerequisite &amp; Dependencies</h2><ol>
+<li>Cutest test problems set installed and compiled</li>
+<li>A python support of cutest needed as well</li>
+<li>Pytorch installed and possibly GPU support</li>
+</ol>
+<h2 id="Initialize-the-problem-oracles"><a href="#Initialize-the-problem-oracles" class="headerlink" title="Initialize the problem (oracles)"></a>Initialize the problem (oracles)</h2><h2 id="Initialize-the-optimizer"><a href="#Initialize-the-optimizer" class="headerlink" title="Initialize the optimizer"></a>Initialize the optimizer</h2><h2 id="Run-and-save-required-logs"><a href="#Run-and-save-required-logs" class="headerlink" title="Run and save required logs"></a>Run and save required logs</h2><h2 id="Demo-plot-on-2d-3d-problems-and-performance-comparison-among-different-algorithms"><a href="#Demo-plot-on-2d-3d-problems-and-performance-comparison-among-different-algorithms" class="headerlink" title="Demo plot on 2d/3d problems and performance comparison among different algorithms"></a>Demo plot on 2d/3d problems and performance comparison among different algorithms</h2><h2 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h2><p>Be fair and make it clear.</p>
+<center><img src="https://cdn0.iconfinder.com/data/icons/science-37/100/science-04-512.png" width="256" height="256"></center>
+
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference:"></a>Reference:</h2><ul>
-<li><a href="http://michaelarnel.com/2015/03/01/Building-A-Website-With-Hexo-io/" target="_blank" rel="noopener">Building A Website With Hexo.io</a></li>
-<li><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="noopener">Hexo your blog</a></li>
+<li><a href="http://home.agh.edu.pl/~pba/pdfdoc/Numerical_Optimization.pdf" target="_blank" rel="noopener">Numerical Optimization</a></li>
 </ul>
 
       
@@ -225,7 +221,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nonlinear</a>
         		</li>
       		
 		</ul>
@@ -237,7 +233,7 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/tech//" class="article-tag-list-link color5">tech</a>
+        			<a href="/categories/optimization//" class="article-tag-list-link color3">optimization</a>
         		</li>
       		
 		</ul>
@@ -292,7 +288,7 @@ ga('send', 'pageview');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://xihey.com/2015/08/15/build_website/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xihey.com/1991/04/11/mr_eleven_lib/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -306,20 +302,15 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/2015/08/20/reminder_on_maintaining_website/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/08/15/build_website/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Reminders on maintaining this Blog
+          Use GitHub and Hexo to build a Blog
         
       </div>
     </a>
   
-  
-    <a href="/1991/04/11/mr_eleven_lib/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">An unconstrained nonlinear optimization library in Python</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
